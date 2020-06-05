@@ -1,5 +1,6 @@
 # Set Working Directory:
-setwd("~/URI/Lab-Notebook/E5_ROL/RAnalysis/Data") #set working
+rm(list=ls()) #clears workspace
+setwd("~/URI/Lab-Notebook/Apul_Spawning_Nurs.vs.Wild/RAnalysis/Data/Eggs Per Bundle") #set working
 
 # load data 
 eggs.per.bundle <-read.csv('Eggs.per.bundle.counts.csv', header=T, sep=",")
@@ -8,4 +9,3 @@ dev.off()
 
 #stats
 t.test(Num.Eggs~Condition, data = eggs.per.bundle) #Statistically significant if p-value <0.05
-

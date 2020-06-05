@@ -1,5 +1,6 @@
 # Set Working Directory:
-setwd("~/URI/Lab-Notebook/E5_ROL/RAnalysis/Data") #set working
+rm(list=ls()) #clears workspace
+setwd("~/URI/Lab-Notebook/Apul_Spawning_Nurs.vs.Wild/RAnalysis/Data") #set working
 
 # load data 
 eggs.size <-read.csv('Egg.size.csv', header=T, sep=",")
