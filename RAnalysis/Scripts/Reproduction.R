@@ -118,7 +118,7 @@ fert$Temperature <- as.factor(fert$Temperature)
 female <- intToUtf8(9792)
 male <- intToUtf8(9794)
 
-pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=6)
+pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=5)
 fert %>%
   ggplot(aes(x = Colony_Female, y = prop, group = Temperature, color = Temperature)) +
   geom_jitter(width = 0.1)  +
