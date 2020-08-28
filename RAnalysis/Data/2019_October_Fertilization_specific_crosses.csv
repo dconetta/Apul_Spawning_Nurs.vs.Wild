@@ -1,0 +1,125 @@
+Month_ID,Folder_ID,Tube_Number,Photo_ID,Vial Row Number,Colony_Male,Colony_Female,Temperature,Fertilized_eggs,Total_eggs,Tech,Note
+October,2019OCT_Spawning(1-134),1,tube1_20191023,1 and 2,C7,C8,27,0,51,EF,
+October,2019OCT_Spawning(1-134),2,tube2_20191023,1 and 2,C7,C8,27,0,42,EF,
+October,2019OCT_Spawning(1-134),3,tube3_20191023,1 and 2,C7,C8,27,0,27,EF,
+October,2019OCT_Spawning(1-134),4,tube4_20191023,1 and 2,C7,C8,27,0,70,EF,
+October,2019OCT_Spawning(1-134),5,tube5_20191023,1 and 2,C7,C8,27,0,52,EF,
+October,2019OCT_Spawning(1-134),6,tube6_20191023,1 and 2,C7,C8,27,0,58,EF,
+October,2019OCT_Spawning(1-134),7,tube7_20191023,1 and 2,C7,C8,27,1,61,EF,
+October,2019OCT_Spawning(1-134),8,tube8_20191023,3 and 4,C7,C14,27,0,40,EF,
+October,2019OCT_Spawning(1-134),9,tube9_20191023,3 and 4,C7,C14,27,0,32,EF,
+October,2019OCT_Spawning(1-134),10,tube10_20191023,3 and 4,C7,C14,27,0,23,EF,
+October,2019OCT_Spawning(1-134),11,tube11_20191023,3 and 4,C7,C14,27,0,44,EF,
+October,2019OCT_Spawning(1-134),12,tube12_20191023,3 and 4,C7,C14,27,0,62,EF,
+October,2019OCT_Spawning(1-134),13,tube13_20191023,3 and 4,C7,C14,27,0,1,EF,
+October,2019OCT_Spawning(1-134),14,NA,3 and 4,C7,C14,27,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),15,tube15_20191023,5 and 6,C8,C14,27,0,11,EF,
+October,2019OCT_Spawning(1-134),16,tube16_20191023,5 and 6,C8,C14,27,0,32,EF,
+October,2019OCT_Spawning(1-134),17,tube17_20191023 ,5 and 6,C8,C14,27,0,23,EF,
+October,2019OCT_Spawning(1-134),18,tube18_20191023,5 and 6,C8,C14,27,0,16,EF,
+October,2019OCT_Spawning(1-134),19,tube19_20191023,5 and 6,C8,C14,27,0,23,EF,
+October,2019OCT_Spawning(1-134),20,NA,5 and 6,C8,C14,27,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),21,NA,5 and 6,C8,C14,27,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),22,tube22_20191023,7 and 8,C8,C7,27,0,39,EF,
+October,2019OCT_Spawning(1-134),23,tube23_20191023,7 and 8,C8,C7,27,0,72,EF,
+October,2019OCT_Spawning(1-134),24,tube24_20191023,7 and 8,C8,C7,27,0,73,EF,
+October,2019OCT_Spawning(1-134),25,tube25_20191023,7 and 8,C8,C7,27,0,36,EF,
+October,2019OCT_Spawning(1-134),26,tube26_20191023,7 and 8,C8,C7,27,0,53,EF,
+October,2019OCT_Spawning(1-134),27,tube27_20191023,7 and 8,C8,C7,27,0,49,EF,
+October,2019OCT_Spawning(1-134),28,tube28_20191023,7 and 8,C8,C7,27,0,52,EF,
+October,2019OCT_Spawning(1-134),29,tube29_20191023,9 and 10,C14,C7,27,38,65,EF,
+October,2019OCT_Spawning(1-134),30,tube30_20191023,9 and 10,C14,C7,27,49,61,EF,
+October,2019OCT_Spawning(1-134),31,tube31_20191023,9 and 10,C14,C7,27,34,41,EF,
+October,2019OCT_Spawning(1-134),32,tube32_20191023,9 and 10,C14,C7,27,36,41,EF,
+October,2019OCT_Spawning(1-134),33,tube33_20191023,9 and 10,C14,C7,27,34,37,EF,
+October,2019OCT_Spawning(1-134),34,tube34_20191023,9 and 10,C14,C7,27,59,63,EF,
+October,2019OCT_Spawning(1-134),35,tube35_20191023,9 and 10,C14,C7,27,35,41,EF,
+October,2019OCT_Spawning(1-134),36,tube36_20191025,11 and 12,C14,C8,27,31,35,EF,
+October,2019OCT_Spawning(1-134),37,tube37_20191025,11 and 12,C14,C8,27,26,30,EF,
+October,2019OCT_Spawning(1-134),38,tube38_20191025,11 and 12,C14,C8,27,45,53,EF,
+October,2019OCT_Spawning(1-134),39,tube39_20191025,11 and 12,C14,C8,27,39,57,EF,
+October,2019OCT_Spawning(1-134),40,tube40_20191025,11 and 12,C14,C8,27,60,64,EF,
+October,2019OCT_Spawning(1-134),41,tube41_20191025,11 and 12,C14,C8,27,37,51,EF,
+October,2019OCT_Spawning(1-134),42,tube42_20191025,11 and 12,C14,C8,27,47,50,EF,
+October,2019OCT_Spawning(1-134),85,tube85_20191025,1 and 2,C12,C14,27,0,66,AF,
+October,2019OCT_Spawning(1-134),86,tube86_20191025,1 and 2,C12,C14,27,0,64,AF,
+October,2019OCT_Spawning(1-134),87,tube87_20191026,1 and 2,C12,C14,27,0,96,AF,
+October,2019OCT_Spawning(1-134),88,tube88_20191026,1 and 2,C12,C14,27,0,99,AF,
+October,2019OCT_Spawning(1-134),89,tube89_20191026,1 and 2,C12,C14,27,0,81,AF,
+October,2019OCT_Spawning(1-134),90,tube90_20191026,1 and 2,C12,C14,27,0,80,AF,
+October,2019OCT_Spawning(1-134),91,tube91_20191026,1 and 2,C12,C14,27,0,65,AF,
+October,2019OCT_Spawning(1-134),92,tube92_20191026,1 and 2,C12,C14,27,0,78,AF,
+October,2019OCT_Spawning(1-134),93,tube93_20191026,1 and 2,C12,C14,27,1,60,AF,
+October,2019OCT_Spawning(1-134),94,tube94_20191026,1 and 2,C12,C14,27,1,83,AF,
+October,2019OCT_Spawning(1-134),95,tube95_20191026,3 and 4,C14,C12,27,0,97,AF,
+October,2019OCT_Spawning(1-134),96,tube96_20191026,3 and 4,C14,C12,27,0,85,AF,
+October,2019OCT_Spawning(1-134),97,tube97_20191026,3 and 4,C14,C12,27,0,100,AF,
+October,2019OCT_Spawning(1-134),98,tube98_20191026,3 and 4,C14,C12,27,0,95,AM,
+October,2019OCT_Spawning(1-134),99,tube99_20191026,3 and 4,C14,C12,27,1,111,AM,
+October,2019OCT_Spawning(1-134),100,tube100_20191026,3 and 4,C14,C12,27,0,120,EF,
+October,2019OCT_Spawning(1-134),101,tube101_20191026,3 and 4,C14,C12,27,0,116,EF,
+October,2019OCT_Spawning(1-134),102,tube102_20191026,3 and 4,C14,C12,27,2,104,EF,
+October,2019OCT_Spawning(1-134),103,tube103_20191026,3 and 4,C14,C12,27,0,91,EF,
+October,2019OCT_Spawning(1-134),104,tube104_20191026,3 and 4,C14,C12,27,0,97,EF,
+October,2019OCT_Spawning(1-134),43,tube43_20191025,31 and 32,C7,C8,31,3,45,EF,
+October,2019OCT_Spawning(1-134),44,tube44_20191025,31 and 32,C7,C8,31,3,54,EF,
+October,2019OCT_Spawning(1-134),45,tube45_20191025,31 and 32,C7,C8,31,20,47,EF,
+October,2019OCT_Spawning(1-134),46,tube46_20191025,31 and 32,C7,C8,31,0,65,EF,
+October,2019OCT_Spawning(1-134),47,tube47_20191025,31 and 32,C7,C8,31,2,54,EF,
+October,2019OCT_Spawning(1-134),48,tube48_20191025,31 and 32,C7,C8,31,3,65,EF,
+October,2019OCT_Spawning(1-134),49,tube49_20191025,31 and 32,C7,C8,31,0,53,EF,
+October,2019OCT_Spawning(1-134),50,tube50_20191025,33 and 34,C7,C14,31,0,30,EF,
+October,2019OCT_Spawning(1-134),51,tube51_20191025,33 and 34,C7,C14,31,0,21,EF,
+October,2019OCT_Spawning(1-134),52,tube52_20191025,33 and 34,C7,C14,31,1,49,EF,
+October,2019OCT_Spawning(1-134),53,tube53_20191025,33 and 34,C7,C14,31,0,33,EF,
+October,2019OCT_Spawning(1-134),54,tube54_20191025,33 and 34,C7,C14,31,1,41,EF,
+October,2019OCT_Spawning(1-134),55,NA,33 and 34,C7,C14,31,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),56,NA,33 and 34,C7,C14,31,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),57,tube57_20191025,35 and 36,C8,C14,31,0,37,EF,
+October,2019OCT_Spawning(1-134),58,tube58_20191025,35 and 36,C8,C14,31,0,43,EF,
+October,2019OCT_Spawning(1-134),59,tube59_20191025,35 and 36,C8,C14,31,0,24,EF,
+October,2019OCT_Spawning(1-134),60,tube60_20191025,35 and 36,C8,C14,31,2,11,EF,
+October,2019OCT_Spawning(1-134),61,tube61_20191025,35 and 36,C8,C14,31,1,28,EF,
+October,2019OCT_Spawning(1-134),62,NA,35 and 36,C8,C14,31,NA,NA,NA,No Photo Present (DC 20200622)
+October,2019OCT_Spawning(1-134),63,tube63_20191025,35 and 36,C8,C14,31,0,1,EF,
+October,2019OCT_Spawning(1-134),64,tube64_20191025,37 and 38,C8,C7,31,0,33,EF,
+October,2019OCT_Spawning(1-134),65,tube65_20191025,37 and 38,C8,C7,31,0,65,EF,
+October,2019OCT_Spawning(1-134),66,tube66_20191025,37 and 38,C8,C7,31,0,87,EF,
+October,2019OCT_Spawning(1-134),67,tube67_20191025,37 and 38,C8,C7,31,0,72,EF,
+October,2019OCT_Spawning(1-134),68,tube68_20191025,37 and 38,C8,C7,31,0,66,EF,
+October,2019OCT_Spawning(1-134),69,tube69_20191025,37 and 38,C8,C7,31,0,72,EF,
+October,2019OCT_Spawning(1-134),70,tube70_20191025,37 and 38,C8,C7,31,0,67,EF,
+October,2019OCT_Spawning(1-134),71,tube71_20191025,39 and 40,C14,C7,31,27,52,AF,
+October,2019OCT_Spawning(1-134),72,tube72_20191025,39 and 40,C14,C7,31,14,52,AF,
+October,2019OCT_Spawning(1-134),73,tube73_20191025,39 and 40,C14,C7,31,13,25,AF,
+October,2019OCT_Spawning(1-134),74,tube74_20191025,39 and 40,C14,C7,31,10,74,AF,
+October,2019OCT_Spawning(1-134),75,tube75_20191025,39 and 40,C14,C7,31,20,46,EF,
+October,2019OCT_Spawning(1-134),76,tube76_20191025,39 and 40,C14,C7,31,27,63,EF,
+October,2019OCT_Spawning(1-134),77,tube77_20191025,39 and 40,C14,C7,31,13,42,EF,
+October,2019OCT_Spawning(1-134),78,tube78_20191025,41 and 42,C14,C8,31,1,64,EF,
+October,2019OCT_Spawning(1-134),79,tube79_20191025,41 and 42,C14,C8,31,3,92,EF,
+October,2019OCT_Spawning(1-134),80,tube80_20191025,41 and 42,C14,C8,31,29,60,EF,
+October,2019OCT_Spawning(1-134),81,tube81_20191025,41 and 42,C14,C8,31,22,79,EF,
+October,2019OCT_Spawning(1-134),82,tube82_20191025,41 and 42,C14,C8,31,10,59,EF,
+October,2019OCT_Spawning(1-134),83,tube83_20191025,41 and 42,C14,C8,31,5,73,EF,
+October,2019OCT_Spawning(1-134),84,tube84_20191025,41 and 42,C14,C8,31,8,56,AF,
+October,2019OCT_Spawning(135-204),145,tube145_20191026,31/32,C12,C14,31,0,32,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),146,tube146_20191026,31/32,C12,C14,31,1,45,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),147,tube147_20191026,31/32,C12,C14,31,0,48,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),148,tube148_20191026,31/32,C12,C14,31,0,59,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),149,tube149_20191026,31/32,C12,C14,31,1,33,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),150,tube150_20191026,31/32,C12,C14,31,0,58,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),151,tube151_20191026,31/32,C12,C14,31,0,39,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),152,tube152_20191026,31/32,C12,C14,31,0,20,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),153,tube153_20191026,31/32,C12,C14,31,1,59,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),154,tube154_20191026,31/32,C12,C14,31,0,62,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),155,tube155_20191026,33/34,C14,C12,31,0,61,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),156,tube156_20191026,33/34,C14,C12,31,1,63,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),157,tube158_20191026,33/34,C14,C12,31,0,71,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),158,tube158_1_20191026,33/34,C14,C12,31,0,80,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),159,tube159_20191026,33/34,C14,C12,31,0,75,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),160,tube160_20191026,33/34,C14,C12,31,0,66,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),161,tube161_20191026,33/34,C14,C12,31,3,67,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),162,tube162_20191026,33/34,C14,C12,31,4,97,AF,I was unsure of the date so I kept it the same
+October,2019OCT_Spawning(135-204),163,tube163_20191026,33/34,C14,C12,31,1,80,AF,
+October,2019OCT_Spawning(135-204),164,tube164_20191026,33/34,C14,C12,31,0,81,AF,

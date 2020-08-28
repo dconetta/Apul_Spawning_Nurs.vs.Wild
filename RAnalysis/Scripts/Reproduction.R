@@ -3,6 +3,9 @@ rm(list=ls()) #clears workspace
 
 #load libraries
 library(tidyverse)
+library(ggpubr)
+library(showtext)
+showtext_auto()
 
 #FECUNDITY
 #standard curve to get SA
@@ -27,16 +30,15 @@ Oct.fec <- left_join(Oct.fec, SA, by="Sample_ID")
 
 Oct.fec$fecundity <-Oct.fec$tot.eggs/Oct.fec$surface.area.cm2
 
-pdf("Output/Fecundity.pdf")
-Oct.fec %>%
+Fig1 <- Oct.fec %>%
   ggplot(aes(x = Origin, y = fecundity, color = Origin)) +
   labs(x = "", y = "Fecundity eggs/cm2") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic()
-dev.off()
+  theme_classic() +
+  theme(legend.position = "none")
 
 #stats
 t.test(fecundity~Origin, data = Oct.fec) #Statistically significant if p-value <0.05
@@ -49,16 +51,15 @@ eggs.per.bundle <- eggs.per.bundle %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-pdf("Output/eggs.per.bundle.pdf")
-eggs.per.bundle %>%
+Fig2 <- eggs.per.bundle %>%
   ggplot(aes(x = Origin, y = Mean.eggs, color = Origin)) +
   labs(x = "", y = "Eggs per Bundle") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic()
-dev.off()
+  theme_classic() +
+  theme(legend.position = "none")
 
 #stats
 t.test(Mean.eggs~Origin, data = eggs.per.bundle) #Statistically significant if p-value <0.05
@@ -78,28 +79,56 @@ egg.ratio <- egg.size %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.ratio = mean(ratio))
 
-pdf("Output/egg.diameter.pdf")
-egg.diam %>%
+Fig3 <- egg.diam %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
   labs(x = "", y = "Egg Diameter (mm)") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic()
-dev.off()
+  theme_classic() +
+  theme(legend.position = "none")
 
-pdf("Output/egg.ratio.pdf")
-egg.ratio %>%
+Fig4 <- egg.ratio %>%
   ggplot(aes(x = Origin, y = Mean.ratio, color = Origin)) +
   labs(x = "", y = "Egg Ratio (Length:Width)") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic()
-dev.off()
+  theme_classic() + 
+  theme(legend.position = "none")
+
 
 #Stats
 t.test(Mean.size ~ Origin, data = egg.diam) #Statistically significant if p-value <0.05
 t.test(Mean.ratio ~ Origin, data = egg.ratio) #Statistically significant if p-value <0.05
+
+Fig <- ggarrange(Fig1,Fig2,Fig3,Fig4, ncol = 2, nrow = 2)
+ggsave("Output/Repro_Figs.pdf", Fig, width=6, height=8)
+
+
+# SPECIFIC CROSS FERTILIZATION
+
+fert <-read.csv('Data/2019_October_Fertilization_specific_crosses.csv', header=T, sep=",")
+fert$prop <- fert$Fertilized_eggs/fert$Total_eggs
+fert$Temperature <- as.factor(fert$Temperature)
+#fert$Temperature <- ordered(fert$Temperature, levels = c("27", "31"))
+
+female <- intToUtf8(9792)
+male <- intToUtf8(9794)
+
+pdf("Output/Fertilization_Specific_Crosses.pdf")
+fert %>%
+  ggplot(aes(x = Colony_Female, y = prop, group = Temperature, color = Temperature)) +
+  geom_jitter(width = 0.1)  +
+  scale_color_manual(values=c("cyan", "coral")) +
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  facet_wrap(~ Colony_Male) +
+  labs(x = "", y = "Proportion Fertilized") +
+  theme_bw()
+dev.off()
+
+
