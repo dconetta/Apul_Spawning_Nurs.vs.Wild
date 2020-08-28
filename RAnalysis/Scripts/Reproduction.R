@@ -32,7 +32,7 @@ Oct.fec$fecundity <-Oct.fec$tot.eggs/Oct.fec$surface.area.cm2
 
 Fig1 <- Oct.fec %>%
   ggplot(aes(x = Origin, y = fecundity, color = Origin)) +
-  labs(x = "", y = "Fecundity eggs/cm2") +
+  labs(x = "", y = "Fecundity eggs/cm2", title="A") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
@@ -53,7 +53,7 @@ eggs.per.bundle <- eggs.per.bundle %>%
 
 Fig2 <- eggs.per.bundle %>%
   ggplot(aes(x = Origin, y = Mean.eggs, color = Origin)) +
-  labs(x = "", y = "Eggs per Bundle") +
+  labs(x = "", y = "Eggs per Bundle", title="B") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
@@ -81,7 +81,7 @@ egg.ratio <- egg.size %>%
 
 Fig3 <- egg.diam %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
-  labs(x = "", y = "Egg Diameter (mm)") +
+  labs(x = "", y = "Egg Diameter (mm)", title="C") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
@@ -91,7 +91,7 @@ Fig3 <- egg.diam %>%
 
 Fig4 <- egg.ratio %>%
   ggplot(aes(x = Origin, y = Mean.ratio, color = Origin)) +
-  labs(x = "", y = "Egg Ratio (Length:Width)") +
+  labs(x = "", y = "Egg Ratio (Length:Width)", title="D") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
@@ -105,7 +105,7 @@ t.test(Mean.size ~ Origin, data = egg.diam) #Statistically significant if p-valu
 t.test(Mean.ratio ~ Origin, data = egg.ratio) #Statistically significant if p-value <0.05
 
 Fig <- ggarrange(Fig1,Fig2,Fig3,Fig4, ncol = 2, nrow = 2)
-ggsave("Output/Repro_Figs.pdf", Fig, width=6, height=8)
+ggsave("Output/Repro_Figs.pdf", Fig, width=6, height=6)
 
 
 # SPECIFIC CROSS FERTILIZATION
@@ -118,7 +118,7 @@ fert$Temperature <- as.factor(fert$Temperature)
 female <- intToUtf8(9792)
 male <- intToUtf8(9794)
 
-pdf("Output/Fertilization_Specific_Crosses.pdf")
+pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=6)
 fert %>%
   ggplot(aes(x = Colony_Female, y = prop, group = Temperature, color = Temperature)) +
   geom_jitter(width = 0.1)  +
