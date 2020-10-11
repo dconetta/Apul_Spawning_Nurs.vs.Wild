@@ -1,0 +1,34 @@
+Species,Tag.Number,Colony.ID,Site,Date.Spawned_1,Eggs.per.bundle,Fecundity,Egg.Size,Fert.Rate,Molecular.Sperm,Molecular.Egg,Larval Resp,Larval Size,Who Took Molecular,Notes
+A.pulchra,75,Apul_75,Mahana,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Both,Dennis took 1mL of sperm and 250uL of eggs in replicates of five per colony (except when not enough ; like 87)
+A.pulchra,77,Apul_77,Mahana,20201007,Y,N,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,80,Apul_80,Mahana,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,87,Apul_87,Mahana,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,201,Apul_201,Mahana,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,202,Apul_202,Mahana,20201007,Y,Y,Y,Y (Pooled),N,N,,,Both,No gametes left over 20201007 for molec.
+A.pulchra,203,Apul_203,Mahana,20201007,Y,Y,Y,Y (Pooled),N,N,,,Both,No gametes left over 20201007 for molec.
+A.pulchra,241,ACR_241,Mahana,20201007,Y,Y,Y,N,N,N,,,Both,No gametes left over 20201007 for molec.
+A.cyatherea,19,Acya_19,Linareva,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,23,Acya_23,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,25,Acya_25,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,26,Acya_26,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,27,Acya_27,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,28,Acya_28,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,29,Acya_29,Sofitel,20201007,Y,Y,Y,N,Y,Y,,,Laetitia,
+A.cyatherea,30,Acya_30,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.cyatherea,31,Acya_31,Sofitel,20201007,Y,Y,Y,Y (Pooled),Y,Y,,,Laetitia,
+A.pulchra,201,Apul_201,Mahana,20201008,N,N,N,N,N,N,,,,No samples taken because this colony had been characterized  before and didn't do crosses
+A.pulchra,202,Apul_202,Mahana,20201008,N,N,N,N,N,N,,,,No samples taken because this colony had been characterized  before and didn't do crosses
+A.pulchra,66,Apul_66,Linareva,20201009,Y,Y,Y,N,Y,Y,,,Both,Did not cross outplanted colonies from Manava or Mahana because one colony from there did not produce enough to cross - excluded mahana outplants from wild pool to keep treatment and site separate
+A.pulchra,73,Apul_73,Linareva,20201009,Y,Y,Y,N,Y,Y,,,Both,
+A.pulchra,76,Apul_76,Mahana,20201009,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,173,Apul_173,Manava,20201009,Y,Y,Y,N,Y,Y,,,Both,
+A.pulchra,178,Apul_178,Manava,20201009,Y,Y,Y,N,Y,Y,,,Both,
+A.pulchra,204,Apul_204,Mahana,20201009,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,208,Apul_208,Mahana,20201009,Y,Y,Y,Y (Pooled),Y,Y,,,Both,
+A.pulchra,234,Apul_234,Mahana,20201009,Y,Y,Y,N,Y,Y,,,Both,
+A.pulchra,241,Apul_241,Mahana,20201009,Y,Y,Y,N,Y,Y,,,Both,
+A.cyatherea,20,Acya_20,Linareva,20201009,Y,Y,Y,N,Y,Y,,,Laetitia,
+A.cyatherea,N7,Acya_N7,Nursery,20201010,?,Y,?,N,Y,Y,,,Laetitia,
+A.pulchra,66,Apul_66,Linareva,20201010,N,Y,N,,N,N,,,NA,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
+A.pulchra,87,Apul_87,Mahana,20201010,N,Y,N,,N,N,,,NA,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
+A.pulchra,234,Apul_234,Mahana,20201010,N,Y,N,,N,N,,,NA,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
