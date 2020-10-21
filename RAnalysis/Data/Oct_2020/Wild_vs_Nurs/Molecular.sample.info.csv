@@ -57,28 +57,28 @@ Date.Collected,Tube.Number,Species,Tag.Number,Colony.ID,Origin,Treatment,Gamete,
 20201007,56,A.pulchra,87,Apul_87,Mahana,Wild,Sperm,1000uL,
 20201007,57,A.pulchra,87,Apul_87,Mahana,Wild,Sperm,1000uL,
 20201007,58,A.pulchra,87,Apul_87,Mahana,Wild,Sperm,1000uL,
-20201007,59,A.pulchra,87,Apul_87,Mahana,Wild,NA,NA,Not enough left from crosses
-20201007,60,A.pulchra,87,Apul_87,Mahana,Wild,NA,NA,Not enough left from crosses
+20201007,59,A.pulchra,87,Apul_87,Mahana,Wild,Sperm,NA,Not enough left from crosses
+20201007,60,A.pulchra,87,Apul_87,Mahana,Wild,Sperm,NA,Not enough left from crosses
 20201007,61,A.pulchra,201,Apul_201,Mahana,Wild,Sperm,1000uL,
 20201007,62,A.pulchra,201,Apul_201,Mahana,Wild,Sperm,1000uL,
 20201007,63,A.pulchra,201,Apul_201,Mahana,Wild,Sperm,1000uL,
 20201007,64,A.pulchra,201,Apul_201,Mahana,Wild,Sperm,1000uL,
 20201007,65,A.pulchra,201,Apul_201,Mahana,Wild,Sperm,1000uL,
 20201007,66,A.pulchra,202,Apul_202,Mahana,Wild,Sperm,1000uL,
-20201007,67,A.pulchra,202,Apul_202,Mahana,Wild,NA,NA,None left from crosses
-20201007,68,A.pulchra,202,Apul_202,Mahana,Wild,NA,NA,None left from crosses
-20201007,69,A.pulchra,202,Apul_202,Mahana,Wild,NA,NA,None left from crosses
-20201007,70,A.pulchra,202,Apul_202,Mahana,Wild,NA,NA,None left from crosses
-20201007,71,A.pulchra,203,Apul_203,Mahana,Wild,NA,NA,None left from crosses
-20201007,72,A.pulchra,203,Apul_203,Mahana,Wild,NA,NA,None left from crosses
-20201007,73,A.pulchra,203,Apul_203,Mahana,Wild,NA,NA,None left from crosses
-20201007,74,A.pulchra,203,Apul_203,Mahana,Wild,NA,NA,None left from crosses
-20201007,75,A.pulchra,203,Apul_203,Mahana,Wild,NA,NA,None left from crosses
-20201007,76,A.pulchra,241,Apul_241,Mahana,Outplanted,NA,NA,None left from crosses
-20201007,77,A.pulchra,241,Apul_241,Mahana,Outplanted,NA,NA,None left from crosses
-20201007,78,A.pulchra,241,Apul_241,Mahana,Outplanted,NA,NA,None left from crosses
-20201007,79,A.pulchra,241,Apul_241,Mahana,Outplanted,NA,NA,None left from crosses
-20201007,80,A.pulchra,241,Apul_241,Mahana,Outplanted,NA,NA,None left from crosses
+20201007,67,A.pulchra,202,Apul_202,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,68,A.pulchra,202,Apul_202,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,69,A.pulchra,202,Apul_202,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,70,A.pulchra,202,Apul_202,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,71,A.pulchra,203,Apul_203,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,72,A.pulchra,203,Apul_203,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,73,A.pulchra,203,Apul_203,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,74,A.pulchra,203,Apul_203,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,75,A.pulchra,203,Apul_203,Mahana,Wild,Sperm,NA,None left from crosses
+20201007,76,A.pulchra,241,Apul_241,Mahana,Outplanted,Sperm,NA,None left from crosses
+20201007,77,A.pulchra,241,Apul_241,Mahana,Outplanted,Sperm,NA,None left from crosses
+20201007,78,A.pulchra,241,Apul_241,Mahana,Outplanted,Sperm,NA,None left from crosses
+20201007,79,A.pulchra,241,Apul_241,Mahana,Outplanted,Sperm,NA,None left from crosses
+20201007,80,A.pulchra,241,Apul_241,Mahana,Outplanted,Sperm,NA,None left from crosses
 20201009,253,A.pulchra,76,Apul_76,Mahana,Wild,Eggs,250uL,
 20201009,254,A.pulchra,76,Apul_76,Mahana,Wild,Eggs,250uL,
 20201009,255,A.pulchra,76,Apul_76,Mahana,Wild,Eggs,250uL,
@@ -133,3 +133,133 @@ Date.Collected,Tube.Number,Species,Tag.Number,Colony.ID,Origin,Treatment,Gamete,
 20201009,331,A.pulchra,73,Apul_73,Linareva,Wild,Eggs,250uL,
 20201009,332,A.pulchra,73,Apul_73,Linareva,Wild,Eggs,250uL,
 20201009,333,A.pulchra,73,Apul_73,Linareva,Wild,Eggs,250uL,
+20201011,163,A.pulchra,71,Apul_71,Linareva,Wild,Eggs,250uL,
+20201011,164,A.pulchra,71,Apul_71,Linareva,Wild,Eggs,250uL,
+20201011,165,A.pulchra,71,Apul_71,Linareva,Wild,Eggs,250uL,
+20201011,166,A.pulchra,72,Apul_72,Linareva,Wild,Eggs,250uL,
+20201011,167,A.pulchra,72,Apul_72,Linareva,Wild,Eggs,250uL,
+20201011,168,A.pulchra,72,Apul_72,Linareva,Wild,Eggs,250uL,
+20201011,169,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Eggs,NA,Did not spawn
+20201011,170,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Eggs,NA,Did not spawn
+20201011,171,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Eggs,NA,Did not spawn
+20201011,172,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201011,173,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201011,174,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201011,175,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Eggs,250uL,
+20201011,176,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Eggs,250uL,
+20201011,177,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Eggs,250uL,
+20201011,178,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Eggs,250uL,
+20201011,179,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Eggs,250uL,
+20201011,180,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Eggs,250uL,
+20201011,181,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,1000uL,
+20201011,182,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,1000uL,
+20201011,183,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,1000uL,
+20201011,184,A.pulchra,71,Apul_71,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,185,A.pulchra,71,Apul_71,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,186,A.pulchra,71,Apul_71,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,187,A.pulchra,72,Apul_72,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,188,A.pulchra,72,Apul_72,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,189,A.pulchra,72,Apul_72,Linareva,Wild,Sperm,NA,Did not get before taken for crosses
+20201011,190,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Sperm,NA,Did not spawn
+20201011,191,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Sperm,NA,Did not spawn
+20201011,192,A.cyatherea,9_1.5,Acya_9_1.5,Nursery,Nursery,Sperm,NA,Did not spawn
+20201011,193,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,1000uL,
+20201011,194,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,1000uL,
+20201011,195,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,1000uL,
+20201011,196,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Sperm,1000uL,
+20201011,197,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Sperm,1000uL,
+20201011,198,A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,Sperm,1000uL,
+20201011,199,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Sperm,1000uL,
+20201011,200,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Sperm,1000uL,
+20201011,201,A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,Sperm,1000uL,
+20201011,202,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201011,203,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201011,204,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201011,205,A.pulchra,185,Apul_185,Manava,Outplant,Eggs,250uL,
+20201011,206,A.pulchra,185,Apul_185,Manava,Outplant,Eggs,250uL,
+20201011,207,A.pulchra,185,Apul_185,Manava,Outplant,Eggs,250uL,
+20201011,208,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Eggs,250uL,
+20201011,209,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Eggs,250uL,
+20201011,210,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Eggs,250uL,
+20201011,211,A.pulchra,185,Apul_185,Manava,Outplant,Sperm,1000uL,
+20201011,212,A.pulchra,185,Apul_185,Manava,Outplant,Sperm,1000uL,
+20201011,213,A.pulchra,185,Apul_185,Manava,Outplant,Sperm,1000uL,
+20201011,214,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Sperm,NA,Not enough left from crosses
+20201011,215,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Sperm,NA,Not enough left from crosses
+20201011,216,A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,Sperm,NA,Not enough left from crosses
+20201011,217,A.pulchra,4,Apul_4,Nursery,Nursery,Eggs,250uL,
+20201011,218,A.pulchra,4,Apul_4,Nursery,Nursery,Eggs,250uL,
+20201011,219,A.pulchra,4,Apul_4,Nursery,Nursery,Eggs,250uL,
+20201011,220,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,1000uL,
+20201011,221,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,1000uL,
+20201011,222,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,1000uL,
+20201011,223,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201011,224,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201011,225,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201012,184,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,500uL,Not much so took less than usual
+20201012,185,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,NA,Not enough to do duplicates
+20201012,186,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Sperm,NA,Not enough to do duplicates
+20201012,187,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,188,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,189,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,190,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Sperm,500uL,
+20201012,191,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Sperm,500uL,
+20201012,192,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Sperm,500uL,
+20201012,226,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,500uL,
+20201012,227,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,500uL,
+20201012,228,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Sperm,500uL,
+20201012,229,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,230,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,231,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Sperm,NA,Not enough for sampling
+20201012,232,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201012,233,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201012,234,A.cyatherea,20_C5,Acya_20_C5,Nursery,Nursery,Eggs,250uL,
+20201012,235,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Eggs,250uL,
+20201012,236,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Eggs,250uL,
+20201012,237,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Eggs,250uL,
+20201012,238,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Eggs,250uL,
+20201012,239,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Eggs,250uL,
+20201012,240,A.cyatherea,8_2.1,Acya_8_2.1,Nursery,Nursery,Eggs,250uL,
+20201012,241,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201012,242,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201012,243,A.cyatherea,9_3.4,Acya_9_3.4,Nursery,Nursery,Eggs,250uL,
+20201012,214,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201012,215,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201012,216,A.cyatherea,3_4.1,Acya_3_4.1,Nursery,Nursery,Eggs,250uL,
+20201012,320,A.cyatherea,3_3.1,Acya_3_3.1,Nursery,Nursery,Sperm,500uL,Not much so took less than usual
+20201013,159,A.cyatherea,14_4.2,Acya_14_4.2,Nursery,Nursery,Sperm,500uL,
+20201013,160,A.cyatherea,14_4.2,Acya_14_4.2.2,Nursery,Nursery,Sperm,500uL,
+20201013,161,A.cyatherea,14_4.2,Acya_14_4.2.2,Nursery,Nursery,Sperm,500uL,
+20201013,162,A.cyatherea,14_4.2,Acya_14_4.2.2,Nursery,Nursery,Eggs,250uL,
+20201013,185,A.cyatherea,14_4.2,Acya_14_4.2.2,Nursery,Nursery,Eggs,250uL,
+20201013,186,A.cyatherea,14_4.2,Acya_14_4.2.2,Nursery,Nursery,Eggs,250uL,
+20201013,187,A.pulchra,206,Apul.2,Mahana,Wild,Sperm,500uL,
+20201013,188,A.pulchra,206,Apul.2,Mahana,Wild,Sperm,500uL,
+20201013,189,A.pulchra,206,Apul.2,Mahana,Wild,Sperm,500uL,
+20201013,228,A.pulchra,206,Apul.2,Mahana,Wild,Eggs,250uL,
+20201013,230,A.pulchra,206,Apul.2,Mahana,Wild,Eggs,250uL,
+20201013,231,A.pulchra,206,Apul.2,Mahana,Wild,Eggs,250uL,
+20201013,272,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Sperm,500uL,
+20201013,273,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Sperm,500uL,
+20201013,298,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Sperm,500uL,
+20201013,299,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Eggs,250uL,
+20201013,300,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Eggs,250uL,
+20201013,301,A.cyatherea,8_3.5,Acya_8_3.5.2,Nursery,Nursery,Eggs,250uL,
+20201014,305,A.pulchra,1,Apul_1,Nursery,Nursery,Sperm,500uL,
+20201014,306,A.pulchra,1,Apul_1,Nursery,Nursery,Sperm,NA,Not enough to do duplicates
+20201014,307,A.pulchra,1,Apul_1,Nursery,Nursery,Sperm,NA,Not enough to do duplicates
+20201014,308,A.cyatherea,14,Acya_14,Linareva,Wild,Sperm,NA,Didn’t Spawn enough
+20201014,309,A.cyatherea,14,Acya_14,Linareva,Wild,Sperm,NA,Didn’t Spawn enough
+20201014,310,A.cyatherea,14,Acya_14,Linareva,Wild,Sperm,NA,Didn’t Spawn enough
+20201014,311,A.cyatherea,17,Acya_17,Linareva,Wild,Sperm,1000uL,
+20201014,312,A.cyatherea,17,Acya_17,Linareva,Wild,Sperm,1000uL,
+20201014,313,A.cyatherea,17,Acya_17,Linareva,Wild,Sperm,1000uL,
+20201014,314,A.pulchra,1,Apul_1,Nursery,Nursery,Eggs,250uL,
+20201014,315,A.pulchra,1,Apul_1,Nursery,Nursery,Eggs,250uL,
+20201014,316,A.pulchra,1,Apul_1,Nursery,Nursery,Eggs,250uL,
+20201014,317,A.cyatherea,14,Acya_14,Linareva,Wild,Eggs,NA,Didn’t Spawn enough
+20201014,318,A.cyatherea,14,Acya_14,Linareva,Wild,Eggs,NA,Didn’t Spawn enough
+20201014,319,A.cyatherea,14,Acya_14,Linareva,Wild,Eggs,NA,Didn’t Spawn enough
+20201014,320,A.cyatherea,17,Acya_17,Linareva,Wild,Eggs,250uL,
+20201014,321,A.cyatherea,17,Acya_17,Linareva,Wild,Eggs,250uL,
+20201014,322,A.cyatherea,17,Acya_17,Linareva,Wild,Eggs,250uL,
