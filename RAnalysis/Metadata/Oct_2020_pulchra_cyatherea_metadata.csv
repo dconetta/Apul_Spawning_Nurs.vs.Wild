@@ -16,32 +16,44 @@ A.cyatherea,28,Acya_28,Sofitel,Wild,20201007,Y,Y,Y,Y,Y,Y,Laetitia,Y (Pooled),Y,Y
 A.cyatherea,29,Acya_29,Sofitel,Wild,20201007,Y,Y,Y,Y,Y,Y,Laetitia,Y (Pooled),Y,Y,
 A.cyatherea,30,Acya_30,Sofitel,Wild,20201007,Y,Y,Y,Y,Y,Y,Laetitia,Y (Pooled),Y,Y,
 A.cyatherea,31,Acya_31,Sofitel,Wild,20201007,Y,Y,Y,Y,Y,Y,Laetitia,Y (Pooled),Y,Y,
-A.pulchra,201,Apul_201,Mahana,Wild,20201008,N,N,N,N,N,N,,N,N,N,No samples taken because this colony had been characterized  before and didn't do crosses
-A.pulchra,202,Apul_202,Mahana,Wild,20201008,N,N,N,N,N,N,,N,N,N,No samples taken because this colony had been characterized  before and didn't do crosses
-A.pulchra,14,Apul_14_4.2,Nursery,Nursery,20201008,N,N,N,N,N,N,,N,N,N,No samples taken because didn't spawn and no cross potential
-A.pulchra,66,Apul_66,Linareva,Wild,20201009,Y,Y,N,Y,Y,Y,Both,N,,,Did not cross outplanted colonies from Manava or Mahana because one colony from there did not produce enough to cross - excluded mahana outplants from wild pool to keep treatment and site separate ; not bundles in fecundity
-A.pulchra,73,Apul_73,Linareva,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,N,,,
-A.pulchra,76,Apul_76,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),,,No bundles in fecundity branch
-A.pulchra,173,Apul_173,Manava,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,,,No bundles in fecundity branch
-A.pulchra,178,Apul_178,Manava,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,,,
-A.pulchra,204,Apul_204,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),,,
-A.pulchra,208,Apul_208,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),,,
-A.pulchra,234,Apul_234,Mahana,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,,,
-A.pulchra,241,Apul_241,Mahana,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,,,
-A.cyatherea,20,Acya_20,Linareva,Wild,20201009,Y,Y,Y,Y,Y,Y,Laetitia,N,,,No bundles in fecundity branch
-A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,20201010,Y,N,Y,Y,Unknown,Unknown,,N,,,
-A.cyatherea,7_3.1,Acy_7_3.1,Nursery,Nursery,20201010,Y,N,Y,Y,Unknown,Unknown,,N,,,
-A.pulchra,66,Apul_66,Linareva,Wild,20201010,N,N,Y,Y,Unknown,Unknown,,N,,,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
-A.pulchra,87,Apul_87,Mahana,Wild,20201010,N,N,Y,Y,Unknown,Unknown,,N,,,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
-A.pulchra,234,Apul_234,Mahana,Outplant,20201010,N,N,Y,Y,Unknown,Unknown,,N,,,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
-A.pulchra,201,Apul_201,Mahana,Wild,20201011,Y,N,Y,Y,N,N,,Y,,,Not enough to sample for molecular
-A.cyatherea,9_3.4,Apul_9_3.4,Nursery,Nursery,20201011,Y,N,Y,Y,Y,Y,,,,,
-A.cyatherea,7_3.1,Apul_7_3.1,Nursery,Nursery,20201011,Y,,,,,,,,,,
-A.pulchra,72,Apul_72,Linareva,Wild,20201011,Y,,,,,,,,,,
-A.pulchra,71,Apul_71,Linareva,Wild,20201011,Y,,,,,,,,,,
-A.cyatherea,7_2.6,Apul_7_2.6,Nursery,Nursery,20201011,Y,,,,,,,,,,
-A.cyatherea,3_4.1,Apul_3_4.1,Nursery,Nursery,20201011,Y,,,,,,,,,,
-A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,20201011,Y,,,,,,,,,,
-A.pulchra,9,Apul_9,Nursery,Nursery,20201011,Y,,,,,,,,,,
-A.pulchra,185,Apul_185,Manava,Outplant,20201011,Y,,,,,,,,,,
-A.pulchra,4,Apul_4,Nursery,Nursery,20201011,Y,,,,,,,,,,
+A.pulchra,201,Apul_201,Mahana,Wild,20201008,N,N,N,N,N,N,NA,N,N,N,No samples taken because this colony had been characterized  before and didn't do crosses
+A.pulchra,202,Apul_202,Mahana,Wild,20201008,N,N,N,N,N,N,NA,N,N,N,No samples taken because this colony had been characterized  before and didn't do crosses
+A.pulchra,14,Apul_14_4.2,Nursery,Nursery,20201008,N,N,N,N,N,N,NA,N,N,N,No samples taken because didn't spawn and no cross potential
+A.pulchra,66,Apul_66,Linareva,Wild,20201009,Y,Y,N,Y,Y,Y,Both,N,N,N,Did not cross outplanted colonies from Manava or Mahana because one colony from there did not produce enough to cross - excluded mahana outplants from wild pool to keep treatment and site separate ; not bundles in fecundity
+A.pulchra,73,Apul_73,Linareva,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.pulchra,76,Apul_76,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),N,N,No bundles in fecundity branch
+A.pulchra,173,Apul_173,Manava,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,N,N,No bundles in fecundity branch
+A.pulchra,178,Apul_178,Manava,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.pulchra,204,Apul_204,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),N,N,
+A.pulchra,208,Apul_208,Mahana,Wild,20201009,Y,Y,Y,Y,Y,Y,Both,Y (Pooled),N,N,
+A.pulchra,234,Apul_234,Mahana,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.pulchra,241,Apul_241,Mahana,Outplant,20201009,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.cyatherea,20,Acya_20,Linareva,Wild,20201009,Y,Y,Y,Y,Y,Y,Laetitia,N,N,N,No bundles in fecundity branch
+A.cyatherea,7_2.6,Acya_7_2.6,Nursery,Nursery,20201010,Y,N,Y,Y,Unknown,Unknown,Unknown,N,N,N,
+A.cyatherea,7_3.1,Acya_7_3.1,Nursery,Nursery,20201010,Y,N,Y,Y,Unknown,Unknown,Unknown,N,N,N,
+A.pulchra,66,Apul_66,Linareva,Wild,20201010,N,N,Y,Y,Unknown,Unknown,Unknown,N,N,N,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
+A.pulchra,87,Apul_87,Mahana,Wild,20201010,N,N,Y,Y,Unknown,Unknown,Unknown,N,N,N,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
+A.pulchra,234,Apul_234,Mahana,Outplant,20201010,N,N,Y,Y,Unknown,Unknown,Unknown,N,N,N,Only took fecundity because these colonies went the day before and got the fecundity fragments a little late.
+A.pulchra,201,Apul_201,Mahana,Wild,20201011,Y,N,Y,Y,N,N,NA,N,N,N,Not enough to sample for molecular
+A.cyatherea,9_3.4,Acy_9_3.4,Nursery,Nursery,20201011,Y,N,Y,Y,Y,Y,Both,Y,Y (Pooled as Nursery),Y,
+A.cyatherea,7_3.1,Acy_7_3.1,Nursery,Nursery,20201011,Y,N,Y,Y,Y,Y,Both,Y (Pooled with 7.26),Y (Pooled as Nursery),Y,
+A.pulchra,72,Apul_72,Linareva,Wild,20201011,Y,Y,Y,Y,N,Y,Both,Y,N,,
+A.pulchra,71,Apul_71,Linareva,Wild,20201011,Y,Y,Y,Y,N,Y,Both,Y,N,,
+A.cyatherea,7_2.6,Acy_7_2.6,Nursery,Nursery,20201011,Y,N,Y,Y,Y,Y,Both,Y (Pooled with 7.31),N,Y,
+A.cyatherea,3_4.1,Acy_3_4.1,Nursery,Nursery,20201011,Y,N,Y,Y,Y,Y,Both,Y,N,Y,
+A.pulchra,14_4.2,Apul_14_4.2,Nursery,Nursery,20201011,Y,N,Y,Y,N,Y,Both,N,Y (Pooled as Nursery),Y,
+A.pulchra,9,Apul_9,Nursery,Nursery,20201011,Y,N,Y,Y,N,N,NA,N,Y (Pooled as Nursery),Y,
+A.pulchra,185,Apul_185,Manava,Outplant,20201011,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.pulchra,4,Apul_4,Nursery,Nursery,20201011,Y,N,Y,Y,N,Y,Both,N,Y (Pooled as Nursery),Y,
+A.cyatherea,3_4.1,Acy_3_4.1,Nursery,Nursery,20201012,Y,Y,Y,Y,N,N,?,N,N,N,Not sure why didn't take molec. Samples for any of these on 20201012
+A.cyatherea,3_3.1,Acy_3_3.1.1,Nursery,Nursery,20201012,Y,N,N,Y,N,N,?,N,N,N,
+A.cyatherea,8_2.1,Acy_8_2.1.1,Nursery,Nursery,20201012,Y,Y,Y,Y,N,N,?,N,N,N,
+A.cyatherea,9_3.4,Acy_9_3.4.4,Nursery,Nursery,20201012,N,Y,Y,Y,N,N,?,N,N,N,
+A.cyatherea,20_C5,Acy_20_5.5,Nursery,Nursery,20201012,Y,Y,Y,Y,N,N,?,N,N,N,
+A.pulchra,14_4.2,Apu_14_4.2.2,Nursery,Nursery,20201013,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.pulchra,206,Apu.206,Mahana,Wild,20201013,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.cyatherea,8_3.5,Acy_8_3.5.5,Nursery,Nursery,20201013,Y,Y,Y,Y,Y,Y,Both,N,Y (Pooled as Nursery),Y,"Pooled with Acy_20, Acy8_2.1 and Acy_3_3.1 "
+A.pulchra,1,Apu.1,Nursery,Nursery,20201014,Y,Y,Y,Y,Y,Y,Both,Y,N,N,
+A.pulchra,14_4.2,Apu_14_4.2.2,Nursery,Nursery,20201014,N,N,N,N,N,N,NA,Y,N,N,Didn't characterize since did it on 20201013 but crossed with Apul_1 for fert rates
+A.cyatherea,17,Acy.17,Linareva,Wild,20201014,Y,Y,Y,Y,Y,Y,Both,N,N,N,
+A.cyatherea,14,Acy.14,Linareva,Wild,20201014,Y,Y,Y,Y,N,N,Both,N,N,N,Not enough gametes to collect for molec.
