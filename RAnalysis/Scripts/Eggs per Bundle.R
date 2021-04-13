@@ -7,7 +7,7 @@ library(Hmisc)
 
 # load data 
 #2019____________________________________________________
-
+setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 eggs.per.bundle_2019 <- read.csv('Data/Oct_2019/Eggs.per.bundle.counts.csv', header=T, sep=",")
 
 eggs.per.bundle <- eggs.per.bundle_2019 %>%
@@ -29,7 +29,7 @@ dev.off()
 t.test(Mean.eggs~Origin, data = eggs.per.bundle) #Statistically significant if p-value <0.05
 
 #2020______________________________________________________
-
+setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 eggs.per.bundle2 <-read.csv('Data/Oct_2020/Wild_vs_Nurs/Eggs.per.bundle_2020.csv', header=T, sep=",")
 eggs.per.bundle2.0 <- filter(eggs.per.bundle2, !is.na(Num.Eggs)) #getting rid of all NA values for num eggs column
 
