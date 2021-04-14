@@ -101,7 +101,7 @@ epb_19_20_final %>%
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic() + stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
-
+dev.off()
 
 
 
