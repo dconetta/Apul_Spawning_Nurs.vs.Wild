@@ -104,7 +104,6 @@ epb_19_20_final %>%
 
 #adding t.test comparisons/significance to ggplots
 
-pdf("Output/eggs.per.bundle_2019.v.2020.pdf")
 EPB_final <- ggplot(epb_19_20_final, aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="", y = "Eggs per Bundle 2020") +
   facet_wrap(~year) +
@@ -114,6 +113,7 @@ EPB_final <- ggplot(epb_19_20_final, aes(x = Treatment, y = Mean.eggs, color = T
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic()
 
+pdf("Output/eggs.per.bundle_2019.v.2020.pdf")
 EPB_final + stat_compare_means(method = "t.test")
 
 
