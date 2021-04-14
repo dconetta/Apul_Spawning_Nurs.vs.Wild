@@ -1,9 +1,13 @@
 # Set Working Directory:
 rm(list=ls()) #clears workspace
 
+install.packages("ggpubr")#so can compare means from t.test on ggplot
 #load libraries
 library(tidyverse)
 library(Hmisc)
+library(lubridate)
+library(tidyr)
+library(ggpubr)
 
 # load data 
 #2019____________________________________________________
@@ -53,3 +57,64 @@ dev.off()
 
 #stats
 t.test(Mean.eggs~Origin, data = eggs.per.bundle_2020) #Statistically significant if p-value <0.05
+
+#Merge 20219 with 2020 Data___________________________________________
+
+#2019 has columns for Spawn Date, Species, Sample_ID, Origin, Well.Num, Num.Eggs
+
+#2020 has columns for Spawn Date, Species, Sample_ID, Origin, TREATMENT, Well.Num, Num.Eggs
+  #So 2020 has a column that 2019 does not, also will have to make the another column that is just year which can pull from Date
+
+
+#Make new column for 2019 to break out Spawn.Date into YMD separately
+
+epb19 <- eggs.per.bundle_2019 %>%
+  mutate(Spawn.Date = ymd(Spawn.Date)) %>%
+  mutate(year = year(Spawn.Date)) %>%
+  mutate(Treatment = Origin) %>%
+  group_by(Spawn.Date, year, Species, Sample_ID, Origin, Well.Num, Num.Eggs)
+
+#make a new column for year from Spawn.Date
+epb20 <- eggs.per.bundle2.0 %>%
+  filter(Species=="A.pulchra") %>% 
+  filter(Origin=="Mahana" | Origin=="Nursery") %>%
+  filter(Treatment=="Nursery" | Treatment=="Wild") %>%
+  mutate(Spawn.Date = ymd(Spawn.Date)) %>%
+  mutate(year = year(Spawn.Date)) %>%
+  group_by(Spawn.Date, year, Species, Sample_ID, Origin, Treatment, Well.Num, Num.Eggs)
+
+#Merge epb19 and epb20 data sets to be able to compare the data between both
+epb_19_20 <- full_join(epb19, epb20,
+                        by = c("Spawn.Date", "Species", "Sample_ID", "Origin", "Treatment", "Well.Num", "Num.Eggs", "year"))
+
+epb_19_20_final <- epb_19_20 %>% #summarize the mean eggs per bundle for each sample_ID
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.eggs = mean(Num.Eggs))
+
+pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+epb_19_20_final %>% 
+  ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="", y = "Eggs per Bundle 2020") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic()
+
+#adding t.test comparisons/significance to ggplots
+
+pdf("Output/eggs.per.bundle_2019.v.2020.pdf")
+EPB_final <- ggplot(epb_19_20_final, aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="", y = "Eggs per Bundle 2020") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic()
+
+EPB_final + stat_compare_means(method = "t.test")
+
+
+
