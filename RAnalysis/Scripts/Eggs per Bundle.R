@@ -33,7 +33,7 @@ t.test(Mean.eggs~Origin, data = eggs.per.bundle) #Statistically significant if p
 
 #2020______________________________________________________
 setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
-eggs.per.bundle2 <-read.csv('Data/Oct_2020/Wild_vs_Nurs/Eggs.per.bundle_2020.csv', header=T, sep=",")
+eggs.per.bundle2 <-read.csv('Data/Oct_2020/Eggs.per.bundle_2020.csv', header=T, sep=",")
 eggs.per.bundle2.0 <- filter(eggs.per.bundle2, !is.na(Num.Eggs)) #getting rid of all NA values for num eggs column
 
 eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
