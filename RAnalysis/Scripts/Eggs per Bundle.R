@@ -1,7 +1,6 @@
 # Set Working Directory:
 rm(list=ls()) #clears workspace
 
-install.packages("ggpubr")#so can compare means from t.test on ggplot
 #load libraries
 library(tidyverse)
 library(Hmisc)
