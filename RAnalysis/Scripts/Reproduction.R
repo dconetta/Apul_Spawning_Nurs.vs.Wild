@@ -9,24 +9,24 @@ showtext_auto()
 
 #FECUNDITY
 #standard curve to get SA
-wax.stds<-read.csv('Data/wax.standards_1.csv', header=T, sep=",")
+wax.stds<-read.csv('Data/Oct_2019/wax.standards_1.csv', header=T, sep=",")
 wax.stds$delta.mass.g <- wax.stds$weight2.g - wax.stds$weight1.g
 plot(surface.area.cm2~delta.mass.g, data = wax.stds)
 model <- lm(surface.area.cm2~delta.mass.g , data = wax.stds)
 abline(model, col = "red")
 summary(model)
 
-SA<-read.csv('Data/Apul_Wax_Data.csv', header=T, sep=",")
+SA<-read.csv('Data/Oct_2019/Apul_Wax_Data.csv', header=T, sep=",")
 SA$surface.area.cm2 <- (model$coefficients[2]*(SA$waxedmass.g - SA$mass.g)) + model$coefficients[1]
 
 
 # load data 
-Oct.fec <- read.csv('Data/2019_October_Fecundity.csv', header=T, sep=",")
-Oct.fec <- Oct.fec %>%
+Oct.fec <- read.csv('Data/Oct_2019/2019_October_Fecundity.csv', header=T, sep=",")
+Oct.fec_1 <- Oct.fec %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(tot.eggs = sum(Total_number))
 
-Oct.fec <- left_join(Oct.fec, SA, by="Sample_ID")
+Oct.fec_1.0 <- left_join(Oct.fec_1, SA, by="Sample_ID")
 
 Oct.fec$fecundity <-Oct.fec$tot.eggs/Oct.fec$surface.area.cm2
 
