@@ -1,4 +1,4 @@
-Date_Spawned,Photo_ID,Sample_ID,Species,Origin,Site,Replicate,Total_number,Tech,Date Counted,Note
+Date_Spawned,Photo_ID,sample_id,Species,Origin,Site,Replicate,Total_number,Tech,Date Counted,Note
 20201010,Acy_7_2.6_20201010,Acy_7_2.6,A. cyatherea,Nursery,Pepinere,1,142,DC,20210125,
 20201011,Acy_3_4.1_20201011,Acy_3_4.1,A. cyatherea,Nursery,Pepinere,1,232,DC,20210125,
 20201011,Acy_7_2.6_20201011,Acy_7_2.6,A. cyatherea,Nursery,Pepinere,1,331,DC,20210125,
