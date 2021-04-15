@@ -106,7 +106,18 @@ epb_19_20_final %>%
 dev.off()
 
 
+#Saving the figure as Fig.1
 
+Fig.1 <- epb_19_20_final %>% 
+  ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="Treatment", y = "Eggs per Bundle") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 
 
