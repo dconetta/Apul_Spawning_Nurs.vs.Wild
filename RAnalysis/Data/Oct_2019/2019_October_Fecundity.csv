@@ -1,4 +1,4 @@
-Date,Photo_ID,Sample_ID,Origin,Replicate,Total_number,Tech,Note
+Date,Photo_ID,sample_id,Origin,Replicate,Total_number,Tech,Note
 20191026,7_1,Apul7,Nursery,1,62,SG,
 20191026,7_2,Apul7,Nursery,2,56,SG,
 20191026,7_3,Apul7,Nursery,3,41,SG,
