@@ -161,3 +161,8 @@ Fig.3 <- egg_ratio_19_20 %>%
   theme_classic() + 
   stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
+#Putting all Comparison Plots together (Fig.1 = Eggs per Bundle ; Fig.2 = Egg Size ; Fig.3 = Egg Diam Ratio)
+Fig <- ggarrange(Fig.1,Fig.2,Fig.3, ncol = 1, nrow = 3)
+Fig
+
+ggsave("Output/Repro_Figs_19v20.pdf", Fig, width=3, height=6)
