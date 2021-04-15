@@ -165,4 +165,4 @@ Fig.3 <- egg_ratio_19_20 %>%
 Fig <- ggarrange(Fig.1,Fig.2,Fig.3, ncol = 1, nrow = 3)
 Fig
 
-ggsave("Output/Repro_Figs_19v20.pdf", Fig, width=3, height=6)
+ggsave("Output/Repro_Figs_19v20.pdf", Fig, width=4, height=10)
