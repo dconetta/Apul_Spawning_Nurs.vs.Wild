@@ -95,7 +95,7 @@ epb_19_20_final <- epb_19_20 %>% #summarize the mean eggs per bundle for each sa
 pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 epb_19_20_final %>% 
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
-  labs(x ="", y = "Eggs per Bundle 2020") +
+  labs(x ="Treatment", y = "Eggs per Bundle") +
   facet_wrap(~year) +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
