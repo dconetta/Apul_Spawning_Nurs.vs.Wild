@@ -84,7 +84,7 @@ es_19_20 <- full_join(es19, es20)
 pdf("Output/eggs.size_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 es_19_20 %>% 
   ggplot(aes(x = Treatment, y = Mean.size, color = Treatment)) +
-  labs(x ="Treatment", y = "Eggs per Bundle") +
+  labs(x ="Treatment", y = "Eggs Size") +
   facet_wrap(~year) +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
@@ -93,4 +93,6 @@ es_19_20 %>%
   theme_classic() + 
   stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
+
+
 
