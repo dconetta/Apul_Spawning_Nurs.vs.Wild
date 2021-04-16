@@ -1,38 +1,65 @@
 # Set Working Directory:
 rm(list=ls()) #clears workspace
-setwd("~/URI/Lab-Notebook/Apul_Spawning_Nurs.vs.Wild/RAnalysis/Data/Fertilization") #set working
+setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 
-# load data 
-fert<-read.csv('Fertilization_Rates.csv', header=T, sep=",")
-fert$fert_rates <-fert$Fertilized_eggs/fert$Total_number #making a new column in the data to get percentage of eggs fertilized
-avg.fert <- aggregate(fert_rates ~ Colony.Id..Male.*Temperature..C., data = fert, FUN = mean)
-boxplot(fert_rates ~ Temperature..C., data = avg.fert, xlab = 'Temperature Treatment (C)', ylab = 'Percent of Eggs Fertilized', ylim(0, 0.35), col = c("red", "blue")) #Creating boxplot to compare fertilization rates between temp treatments
-legend("topright", inset=.02, title = "Temp Treatment", legend=c("27C", "31C"), col=c("blue","red"), pch=15, cex=1)
+#2019_____________________________________________________________________________
+# SPECIFIC CROSS FERTILIZATION
 
+fert <-read.csv('Data/Oct_2019/2019_October_Fertilization_specific_crosses.csv', header=T, sep=",")
 
-#Boxplots To compare fertilization rates of colonies between temp treatments
-boxplot(fert_rates~Col_ID*Temp_Treat, data = fert, xlab = 'Male Cross Colony ID', ylab = 'Percent of Eggs Fertilized', col = c("blue", "blue","blue", "blue", "blue", "red", "red", "red", "red", "red"), axes=F) #Creating boxplot to compare fertilization rates between temp treatments
-box()
-axis(1, at=c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), labels=c("C7", "C8", "C12", "C14", "mix", "C7", "C8", "C12", "C14", "mix"))
-axis(2, at=seq(0,1,0.2), seq(0,1,0.2), las=1)
-legend("topright", inset=.02, title = "Temp Treatment", legend=c("27C", "31C"), col=c("blue","red"), pch=15, cex=1)
+#Lining up all necessary colonies to merge with 2020 data as well as making proportions
+fert_final <- fert %>%
+  mutate(prop = (Fertilized_eggs/fert$Total_eggs)) %>%
+  mutate(Temp.Treatment = Temperature) %>% 
+  mutate(Male.Colony = Colony_Male) %>% #aligning all the male colonies
+  mutate(Female.Colony = Colony_Female) %>%
+  mutate(Temp.Treatment = as.factor(Temp.Treatment)) %>% #making temperature a factor not numeric
+  mutate(Tube.Number = Tube_Number) %>%
+  summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
+  
+
+#fert$Temperature <- ordered(fert$Temperature, levels = c("27", "31"))
+
+Female <- intToUtf8(9792) #making female and male signs
+Male <- intToUtf8(9794)
+
+pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=5)
+fert_final %>%
+  ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
+  geom_jitter(width = 0.1)  +
+  scale_color_manual(values=c("cyan", "coral")) +
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  facet_wrap(~ Male.Colony) +
+  labs(x = "Female Colonies", y = "Proportion Fertilized", color = "Treatment") +
+  theme_bw()
 dev.off()
 
-#ggplot FINAL (Used this One)
-ggplot(fert, aes(x=Colony.Id..Male.,y=fert_rates, fill=factor(Temperature..C.))) +
-  geom_boxplot() + 
-  labs(fill = "Temperature") + 
-  xlab("Colony ID") +
-  ylab("Percent Eggs Fertilized") +
-  theme_bw(base_size = 16)
+#2020_____________________________________________________________________________
 
+fert2 <-read.csv('Data/Oct_2020/2020_Fertilization_Success.csv', header=T, sep=",")
 
-#Stats
-t.test(fert_rates ~ Temperature..C., data = avg.fert) #Statistically significant if p-value <0.05
+fert2_final <- fert2 %>% #Getting the sums of all the eggs and fertilized eggs by tube number and making a proportion column - represents fert success
+  mutate(Date.Crossed = ymd(Date.Crossed)) %>%
+  mutate(year = year(Date.Crossed)) %>%
+  group_by(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year) %>%
+  summarise(tot.fert = sum(Fert.Eggs), tot.eggs = sum(Total.Eggs)) %>% #sum all eggs and fert egg counts for each tube
+  mutate(prop=(tot.fert/tot.eggs)) %>% #make proportion of fertilized eggs and total egg counts
+  filter(!is.na(prop)) %>% #take out all NA values in prop column
+  mutate(Temp.Treatment = as.factor(Temp.Treatment)) #making sure it is seeing Temp as Factor not numeric
 
-aov(fert_rates ~ Colony.Id..Male.*Temperature..C., data = fert)->model1
-par(mfrow=c(1,3))
-hist(residuals(model1)) #look at normality of data
-boxplot(residuals(model1)) #look at normality of data
-plot(model1$fitted.values, model1$residuals)
-summary(model1)
+fert2_final <- fert2_final %>%
+  summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
+
+fert2_final %>%
+  ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
+  geom_jitter(width = 0.1)  +
+  scale_color_manual(values=c("cyan", "coral")) +
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  facet_wrap(~ Male.Colony) +
+  labs(x = "Female Colonies", y = "Proportion Fertilized") +
+  theme_bw()
+
