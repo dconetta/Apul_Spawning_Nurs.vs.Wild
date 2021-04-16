@@ -136,3 +136,11 @@ Fig.4 <- fec_19_20 %>%
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic() +
   stat_compare_means(method = "t.test")
+
+#Two_Way Anova for Fecundity
+model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)
+plot(model4, 1)
+plot(model4, 2)
+anova(model4)
+
+#no significance

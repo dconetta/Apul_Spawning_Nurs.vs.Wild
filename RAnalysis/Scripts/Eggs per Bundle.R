@@ -120,4 +120,10 @@ Fig.1 <- epb_19_20_final %>%
   stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 
+#Two_Anova Stats
+model3 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
+plot(model3, 1)
+plot(model3, 2)
+anova(model3)
 
+#no significance

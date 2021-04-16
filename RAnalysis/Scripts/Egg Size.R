@@ -8,6 +8,7 @@ library(lubridate)
 library(tidyr)
 library(ggpubr)
 library(dplyr)
+library(car)
 
 #2019_____________________________________________________________________________
 # load data 
@@ -105,6 +106,15 @@ Fig.2 <- es_19_20 %>%
   theme_classic() + 
   stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
+#Stats (Anova to compare means between treatment and year)
+model1 <- aov(Mean.size ~ Treatment*year, data = es_19_20)
+summary(model1)
+plot(model1, 1)
+plot(model1, 2)
+anova(model1)
+#significance with Year and the interaction of Treatment and Year
+TukeyHSD(model1) #Doesn't work/run
+
 #Egg Ratio__________________________________________________________
 #2019 and 2020
 #2019
@@ -160,6 +170,16 @@ Fig.3 <- egg_ratio_19_20 %>%
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic() + 
   stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+
+#Stats (T-test within year, Anova to compare means between treatment and year)
+t.test(Mean.ratio ~ Treatment, data = egg.ratio19) #Statistically significant if p-value <0.05
+t.test(Mean.ratio ~ Treatment, data = egg.ratio20) #Statistically significant if p-value <0.05
+
+model2 <- aov(Mean.ratio ~ Treatment*year, data = egg_ratio_19_20)
+plot(model2, 1)
+plot(model2, 2)
+anova(model2)
+#siginicant for year but nothing else
 
 #Putting all Comparison Plots together (Fig.1 = Eggs per Bundle ; Fig.2 = Egg Size ; Fig.3 = Egg Diam Ratio)
 Fig <- ggarrange(Fig.1,Fig.2,Fig.3,Fig.4, ncol = 2, nrow = 2)
