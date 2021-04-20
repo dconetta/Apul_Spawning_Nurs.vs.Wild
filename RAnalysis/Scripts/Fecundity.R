@@ -23,7 +23,7 @@ SA<-read.csv('Data/Oct_2019/Apul_Wax_Data.csv', header=T, sep=",")
 SA$surface.area.cm2 <- (model$coefficients[2]*(SA$waxedmass.g - SA$mass.g)) + model$coefficients[1]
 
 SA <- SA %>%
-  mutate(sample_id = ï..sample_id)
+  mutate(sample_id = ?..sample_id)
 
 # load Fecundity data 
 Oct.fec <- read.csv('Data/Oct_2019/2019_October_Fecundity.csv', header=T, sep=",")
@@ -94,8 +94,8 @@ Oct.fec_final %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() +
-  stat_compare_means(method = "t.test")
+  theme_classic() #+
+  #stat_compare_means(method = "t.test")
 dev.off()
 
 #stats
@@ -123,8 +123,8 @@ fec_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() +
-  stat_compare_means(method = "t.test")
+  theme_classic() #+
+  #stat_compare_means(method = "t.test")
 
 Fig.4 <- fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
@@ -134,8 +134,8 @@ Fig.4 <- fec_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() +
-  stat_compare_means(method = "t.test")
+  theme_classic() #+
+  #stat_compare_means(method = "t.test")
 
 #Two_Way Anova for Fecundity
 model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)

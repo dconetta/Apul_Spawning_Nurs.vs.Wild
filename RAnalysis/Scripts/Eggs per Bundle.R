@@ -25,8 +25,8 @@ eggs.per.bundle %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() + 
-  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 #stats
@@ -52,8 +52,8 @@ eggs.per.bundle_2020 %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() + 
-  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 #stats
@@ -101,8 +101,8 @@ epb_19_20_final %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() + 
-  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 
@@ -116,14 +116,14 @@ Fig.1 <- epb_19_20_final %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() + 
-  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 
 #Two_Anova Stats
-model3 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
-plot(model3, 1)
-plot(model3, 2)
-anova(model3)
+model1 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
+plot(model1, 1)
+plot(model1, 2)
+anova(model1)
 
 #no significance
