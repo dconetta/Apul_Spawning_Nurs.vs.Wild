@@ -55,7 +55,7 @@ fert2_final <- fert2 %>% #Getting the sums of all the eggs and fertilized eggs b
 fert2_final <- fert2_final %>%
   summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
 
-#pdf("Output/Fertilization_2020_Crosses.pdf", width=6, height=5)
+pdf("Output/Fertilization_2020_Crosses.pdf", width=6, height=5)
 fert2_final %>%
   ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
   geom_jitter(width = 0.1)  +
@@ -66,4 +66,4 @@ fert2_final %>%
   facet_wrap(~ Male.Colony) +
   labs(x = "Female Colonies", y = "Proportion Fertilized") +
   theme_bw()
-
+dev.off()
