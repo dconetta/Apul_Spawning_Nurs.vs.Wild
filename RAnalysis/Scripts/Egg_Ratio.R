@@ -31,7 +31,7 @@ egg.ratio20 <- egg.size2.0 %>%
 
 egg_ratio_19_20 <- full_join(egg.ratio19, egg.ratio20) 
 
-pdf("Output/egg.ratio_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+#pdf("Output/egg.ratio_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 egg_ratio_19_20 %>%
   ggplot(aes(x = Treatment, y = Mean.ratio, color = Treatment)) +
   labs(x = "Treatment", y = "Egg Diameter Ratio") +

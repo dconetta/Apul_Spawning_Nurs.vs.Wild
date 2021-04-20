@@ -23,7 +23,7 @@ fert_final <- fert %>%
 Female <- intToUtf8(9792) #making female and male signs
 Male <- intToUtf8(9794)
 
-pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=5)
+pdf("Output/Fertilization_2019_Crosses.pdf", width=6, height=5)
 fert_final %>%
   ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
   geom_jitter(width = 0.1)  +
@@ -35,6 +35,9 @@ fert_final %>%
   labs(x = "Female Colonies", y = "Proportion Fertilized", color = "Treatment") +
   theme_bw()
 dev.off()
+
+#STATS
+model_fert <- aov(prop ~ treatment)
 
 #2020_____________________________________________________________________________
 
@@ -52,6 +55,7 @@ fert2_final <- fert2 %>% #Getting the sums of all the eggs and fertilized eggs b
 fert2_final <- fert2_final %>%
   summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
 
+#pdf("Output/Fertilization_2020_Crosses.pdf", width=6, height=5)
 fert2_final %>%
   ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
   geom_jitter(width = 0.1)  +

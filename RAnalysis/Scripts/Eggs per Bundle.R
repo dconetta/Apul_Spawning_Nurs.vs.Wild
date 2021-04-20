@@ -44,7 +44,7 @@ eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
   group_by(Sample_ID, Species, Origin, Treatment) %>% #Grouping all the wanted variables
   summarise(Mean.eggs = mean(Num.Eggs)) #Summarizing all the wells for each sample-ID and providing new Mean.eggs per sample
 
-pdf("Output/eggs.per.bundle_2020.pdf")
+#pdf("Output/eggs.per.bundle_2020.pdf")
 eggs.per.bundle_2020 %>%
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="", y = "Eggs per Bundle 2020") +
@@ -92,7 +92,7 @@ epb_19_20_final <- epb_19_20 %>% #summarize the mean eggs per bundle for each sa
   group_by(Sample_ID, Treatment, year) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+#pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 epb_19_20_final %>% 
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="Treatment", y = "Eggs per Bundle") +

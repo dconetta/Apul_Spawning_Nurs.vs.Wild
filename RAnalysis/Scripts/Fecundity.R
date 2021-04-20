@@ -39,7 +39,7 @@ Oct.fec_1.0 <- left_join(Oct.fec_1, SA, by="sample_id")
 
 Oct.fec_1.0$fecundity <-Oct.fec_1.0$tot.eggs/Oct.fec_1.0$surface.area.cm2
 
-pdf("Output/Fecundity.pdf")
+#pdf("Output/Fecundity.pdf")
 Oct.fec_1.0 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2", color = "Treatment") +
@@ -86,7 +86,7 @@ Oct.fec_2.0 <- Oct.fec_2 %>%
 Oct.fec_final <- left_join(SA_2, Oct.fec_2.0, by="sample_id")
 Oct.fec_final$fecundity <-Oct.fec_final$tot.eggs/Oct.fec_final$surface.area.cm2
 
-pdf("Output/Fecundity2020.pdf")
+#pdf("Output/Fecundity2020.pdf")
 Oct.fec_final %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2") +
@@ -114,7 +114,7 @@ fec.20_final <- Oct.fec_final %>%
 
 fec_19_20 <- full_join(fec.19_final, fec.20_final) 
 
-pdf("Output/Fecundity_2019v2020.pdf")
+#pdf("Output/Fecundity_2019v2020.pdf")
 fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity (eggs/cm2)", color = "Treatment") +
