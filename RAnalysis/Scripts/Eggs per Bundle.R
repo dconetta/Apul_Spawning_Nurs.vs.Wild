@@ -127,4 +127,6 @@ plot(model1, 1)
 plot(model1, 2)
 anova(model1)
 
+TukeyHSD(model1)
+
 #no significance

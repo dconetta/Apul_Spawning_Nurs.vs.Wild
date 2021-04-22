@@ -116,7 +116,7 @@ plot(model2, 1)
 plot(model2, 2)
 anova(model2)
 #significance with Year and the interaction of Treatment and Year
-TukeyHSD(model2) #Doesn't work/run
+TukeyHSD(model2) #to see which specific combinations of interactions are significant
 
 
 #Putting all Comparison Plots together (Fig.1 = Eggs per Bundle ; Fig.2 = Egg Size ; Fig.3 = Egg Diam Ratio)

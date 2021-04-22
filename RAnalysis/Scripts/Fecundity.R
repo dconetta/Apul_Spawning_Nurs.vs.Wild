@@ -145,5 +145,6 @@ model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)
 plot(model4, 1)
 plot(model4, 2)
 anova(model4)
+TukeyHSD(model4)
 
 #no significance

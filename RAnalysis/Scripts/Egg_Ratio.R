@@ -75,6 +75,8 @@ model3 <- aov(Mean.ratio ~ Treatment*year, data = egg_ratio_19_20)
 plot(model3, 1)
 plot(model3, 2)
 anova(model3)
+TukeyHSD(model3)
+
 #siginicant for year but nothing else
 
 #Putting all Comparison Plots together (Fig.1 = Eggs per Bundle ; Fig.2 = Egg Size ; Fig.3 = Egg Diam Ratio)
