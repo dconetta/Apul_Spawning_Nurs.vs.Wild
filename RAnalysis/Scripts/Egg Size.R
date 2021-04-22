@@ -9,6 +9,7 @@ library(tidyr)
 library(ggpubr)
 library(dplyr)
 library(car)
+library(broom)
 
 #2019_____________________________________________________________________________
 # load data 

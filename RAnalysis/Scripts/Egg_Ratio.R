@@ -1,3 +1,16 @@
+# Set Working Directory:
+rm(list=ls()) #clears workspace
+
+#load libraries
+library(tidyverse)
+library(Hmisc)
+library(lubridate)
+library(tidyr)
+library(ggpubr)
+library(dplyr)
+library(car)
+library(broom)
+
 #Egg Ratio__________________________________________________________
 #2019 and 2020
 #2019

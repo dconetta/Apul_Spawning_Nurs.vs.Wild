@@ -2,6 +2,16 @@
 rm(list=ls()) #clears workspace
 setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 
+#load libraries
+library(tidyverse)
+library(Hmisc)
+library(lubridate)
+library(tidyr)
+library(ggpubr)
+library(dplyr)
+library(car)
+library(broom)
+
 #2019_____________________________________________________________________________
 # SPECIFIC CROSS FERTILIZATION
 

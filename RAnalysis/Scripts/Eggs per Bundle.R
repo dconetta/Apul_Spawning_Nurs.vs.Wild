@@ -7,6 +7,7 @@ library(Hmisc)
 library(lubridate)
 library(tidyr)
 library(ggpubr)
+library(broom)
 
 # load data 
 #2019____________________________________________________

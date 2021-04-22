@@ -8,10 +8,11 @@ library(lubridate)
 library(tidyr)
 library(ggpubr)
 library(dplyr)
+library(broom)
 
 #2019__________________________________________________________________________________________
 #standard curve to get SA
-setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
+setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 wax.stds<-read.csv('Data/Oct_2019/wax.standards_1.csv', header=T, sep=",")
 wax.stds$delta.mass.g <- wax.stds$weight2.g - wax.stds$weight1.g
 plot(surface.area.cm2~delta.mass.g, data = wax.stds)
@@ -51,7 +52,9 @@ Oct.fec_1.0 %>%
 dev.off()
 
 #stats
-t.test(fecundity~Origin, data = Oct.fec) #Statistically significant if p-value <0.05
+fec_ttest <- t.test(fecundity~treatment, data = Oct.fec_1.0) #Statistically significant if p-value <0.05
+
+fec_ttest #not enough observations (only one for wild so cannot run t.test)
 
 #2020_________________________________________________________________________________
 
@@ -99,7 +102,7 @@ Oct.fec_final %>%
 dev.off()
 
 #stats
-t.test(fecundity~Origin, data = Oct.fec_final) #Statistically significant if p-value <0.05
+t.test(fecundity~treatment, data = Oct.fec_final) #Statistically significant if p-value <0.05
 
 #MERGING 2019 with 2020
 #cleaning up 2019 data fram so when combine only have four columns and are the same in each file
