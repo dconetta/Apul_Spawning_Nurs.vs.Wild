@@ -127,7 +127,7 @@ fec_19_20 %>%
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic() #+
-  #stat_compare_means(method = "t.test")
+dev.off() #stat_compare_means(method = "t.test")
 
 Fig.4 <- fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
