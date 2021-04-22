@@ -11,14 +11,13 @@ library(broom)
 
 # load data 
 #2019____________________________________________________
-setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 eggs.per.bundle_2019 <- read.csv('Data/Oct_2019/Eggs.per.bundle.counts.csv', header=T, sep=",")
 
 eggs.per.bundle <- eggs.per.bundle_2019 %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-pdf("Output/eggs.per.bundle_2019.pdf")
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2019.pdf")
 eggs.per.bundle %>%
   ggplot(aes(x = Origin, y = Mean.eggs, color = Origin)) +
   labs(x = "", y = "Eggs per Bundle 2019") +
