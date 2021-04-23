@@ -84,21 +84,21 @@ output: pdf_document
 # Figures
 
 
-![](./Apul_Spawning_Nurs.vs.Wild/RAnalysis/Output/Fig.1_Moorea_Map.png)
+![](./Output/Fig.1_Moorea_Map.png)
 
 Figure 1. **A)** Map of Mo'orea, French Polynesia with Mahana or the Wild site (blue dot), and the Nursery site (red dot) indicated. **B)** Mahana is a shallow backreef located on the western end of the island where *Acropora pulchra* is found in massive thickets. **C)** The nursery is located at the mouth of Oponohu Bay, this nursery tree is located in a deeper site that experiences more flushing from the open ocean since it is near the boat channel. The *Acropora pulchra* fragments here dangle from the tree in the water column and are surrounded by various species held for restoration efforts. 
 
-![](./Apul_Spawning_Nurs.vs.Wild/RAnalysis/Output/Repro_Figs_19v20.pdf)
+![](./Output/Repro_Figs_19v20.pdf)
 
 
 **Figure 2.** Scatter plots that represent eggs per bundle (A - top left), egg size (B - top right), egg ratio (C - bottom left), and fecundity (D - bottom right) for 2019 and 2020 spawning data. In each plot the black dot with error bars represents the mean and the standard error for that treatment. **A)** Scatter plot displaying the average number of eggs in a bundle produced by a given colony in the Nursery (n=7 -2019 ; n=4 -2020) and Wild (n=6 2019 ; n=12 2020) treatments at each year, t-test results for treatment are year depicted above scatter plot. **B)** Scatter plot displaying the average egg size produced by a given colony in the Nursery (n=7 2019 ; n=2 2020) and Wild (n=6 2019 ; n=11 2020) treatments at each year, t-test results for each  year depicted. **C)** Scatter plot showing the egg ratio or the average ratio of the longest and the perpendicular diameters for a given colony in the Nursery (n=7 2019 ; n=2 2020) and Wild (n=6 2019 ; n=11 2020) treatments at each year, t-test results for each year depicted. **D)** Scatter plot showing the fecundity for a given colony in the Nursery (n=3 2019 ; n=4 2020) and Wild (n=1 2019 ; n=10 2020) treatments at each year, t-test results for each  year depicted.
 
-![](./Apul_Spawning_Nurs.vs.Wild/RAnalysis/Output/Fertilization_Specific_Crosses.pdf)
+![](./Output/Fertilization_Crosses_2019.pdf)
 
 
 Figure 3a. Scatter plots representing the proportion of fertilization that occurred for all 2019 Nursery colony crosses at either the Ambient (28C) or Heat (31C) treatments. Each box represents the sperm of the nursery colony and the y-axis represents the proportion of eggs fertilized (ranging from 0-1) of each colony listed on the x-axis. Each data point represents the average proportion of eggs fertilized in a replicate vial of that specific cross. Ambient temperature treatment data was represented by blue dots and the Heat temperature treatment represented by red dots. The black dots represent the mean and standard error for the give temperature treatment. 
 
-![](./Apul_Spawning_Nurs.vs.Wild/RAnalysis/Output/Fertilization_2020_Crosses.pdf)
+![](./Output/Fertilization_Crosses_2020.pdf)
 
 
 Figure 3b. Scatter plots representing the proportion of fertilization that occurred for all 2020 colony crosses at either the Ambient (28C) or Heat (31C) treatments. Wild crosses for this year were all pooled and only one cross was done for the Nursery Treatment. Each box represents the sperm of the nursery colony and the y-axis represents the proportion of eggs fertilized (ranging from 0-1) of each colony listed on the x-axis. Each data point represents the average proportion of eggs fertilized in a replicate vial of that specific cross. Ambient temperature treatment data was represented by blue dots and the Heat temperature treatment represented by red dots. The black dots represent the mean and standard error for the give temperature treatment.
