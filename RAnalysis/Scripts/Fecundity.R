@@ -8,10 +8,11 @@ library(lubridate)
 library(tidyr)
 library(ggpubr)
 library(dplyr)
+library(broom)
 
 #2019__________________________________________________________________________________________
 #standard curve to get SA
-setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
+setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 wax.stds<-read.csv('Data/Oct_2019/wax.standards_1.csv', header=T, sep=",")
 wax.stds$delta.mass.g <- wax.stds$weight2.g - wax.stds$weight1.g
 plot(surface.area.cm2~delta.mass.g, data = wax.stds)
@@ -23,7 +24,7 @@ SA<-read.csv('Data/Oct_2019/Apul_Wax_Data.csv', header=T, sep=",")
 SA$surface.area.cm2 <- (model$coefficients[2]*(SA$waxedmass.g - SA$mass.g)) + model$coefficients[1]
 
 SA <- SA %>%
-  mutate(sample_id = ï..sample_id)
+  mutate(sample_id = ?..sample_id)
 
 # load Fecundity data 
 Oct.fec <- read.csv('Data/Oct_2019/2019_October_Fecundity.csv', header=T, sep=",")
@@ -39,7 +40,7 @@ Oct.fec_1.0 <- left_join(Oct.fec_1, SA, by="sample_id")
 
 Oct.fec_1.0$fecundity <-Oct.fec_1.0$tot.eggs/Oct.fec_1.0$surface.area.cm2
 
-pdf("Output/Fecundity.pdf")
+pdf("Output/Fecundity/Fecundity_2019.pdf")
 Oct.fec_1.0 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2", color = "Treatment") +
@@ -51,7 +52,9 @@ Oct.fec_1.0 %>%
 dev.off()
 
 #stats
-t.test(fecundity~Origin, data = Oct.fec) #Statistically significant if p-value <0.05
+fec_ttest <- t.test(fecundity~treatment, data = Oct.fec_1.0) #Statistically significant if p-value <0.05
+
+fec_ttest #not enough observations (only one for wild so cannot run t.test)
 
 #2020_________________________________________________________________________________
 
@@ -86,7 +89,7 @@ Oct.fec_2.0 <- Oct.fec_2 %>%
 Oct.fec_final <- left_join(SA_2, Oct.fec_2.0, by="sample_id")
 Oct.fec_final$fecundity <-Oct.fec_final$tot.eggs/Oct.fec_final$surface.area.cm2
 
-pdf("Output/Fecundity2020.pdf")
+pdf("Output/Fecundity/Fecundity_2020.pdf")
 Oct.fec_final %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2") +
@@ -99,7 +102,7 @@ Oct.fec_final %>%
 dev.off()
 
 #stats
-t.test(fecundity~Origin, data = Oct.fec_final) #Statistically significant if p-value <0.05
+t.test(fecundity~treatment, data = Oct.fec_final) #Statistically significant if p-value <0.05
 
 #MERGING 2019 with 2020
 #cleaning up 2019 data fram so when combine only have four columns and are the same in each file
@@ -114,7 +117,7 @@ fec.20_final <- Oct.fec_final %>%
 
 fec_19_20 <- full_join(fec.19_final, fec.20_final) 
 
-pdf("Output/Fecundity_2019v2020.pdf")
+pdf("Output/Fecundity/Fecundity_2019v2020.pdf")
 fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity (eggs/cm2)", color = "Treatment") +
@@ -125,6 +128,7 @@ fec_19_20 %>%
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
   theme_classic() +
   stat_compare_means(method = "t.test")
+dev.off() 
 
 Fig.4 <- fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
@@ -142,5 +146,6 @@ model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)
 plot(model4, 1)
 plot(model4, 2)
 anova(model4)
+TukeyHSD(model4)
 
 #no significance

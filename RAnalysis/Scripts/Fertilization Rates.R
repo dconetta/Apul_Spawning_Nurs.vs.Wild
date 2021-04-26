@@ -2,6 +2,16 @@
 rm(list=ls()) #clears workspace
 setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 
+#load libraries
+library(tidyverse)
+library(Hmisc)
+library(lubridate)
+library(tidyr)
+library(ggpubr)
+library(dplyr)
+library(car)
+library(broom)
+
 #2019_____________________________________________________________________________
 # SPECIFIC CROSS FERTILIZATION
 
@@ -23,7 +33,7 @@ fert_final <- fert %>%
 Female <- intToUtf8(9792) #making female and male signs
 Male <- intToUtf8(9794)
 
-pdf("Output/Fertilization_Specific_Crosses.pdf", width=6, height=5)
+pdf("Output/Fertilization_2019_Crosses.pdf", width=6, height=5)
 fert_final %>%
   ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
   geom_jitter(width = 0.1)  +
@@ -35,6 +45,34 @@ fert_final %>%
   labs(x = "Female Colonies", y = "Proportion Fertilized", color = "Treatment") +
   theme_bw()
 dev.off()
+
+#STATS - (only on crosses which had more than zero and their reciprocals)
+#Some sort of nest approach needed but right now do not know what that is so in mean time running t.test on all
+#temperature treatments of each cross, requires filtering and then t.test
+#C7 female and C14 male (significant - mean for ambient double the amount of the heat)
+C7.f_C14.m_27C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C7" & Temp.Treatment == 27)
+C7.f_C14.m_31C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C7" & Temp.Treatment == 31)
+t.test(C7.f_C14.m_27C$prop, C7.f_C14.m_31C$prop)
+
+#C14 female and C7 male (not significant) - means are basically zero.
+C7.m_C14.f_27C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C14" & Temp.Treatment == 27)
+C7.m_C14.f_31C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C14" & Temp.Treatment == 31)
+t.test(C7.m_C14.f_27C$prop, C7.m_C14.f_31C$prop)
+
+#C8 female and C14 male (significant - ambient five times larger than heat)
+C8.f_C14.m_27C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C8" & Temp.Treatment == 27)
+C8.f_C14.m_31C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C8" & Temp.Treatment == 31)
+t.test(C8.f_C14.m_27C$prop, C8.f_C14.m_31C$prop)
+
+#C14 female and C8 male (not significant)
+C8.m_C14.f_27C <- filter(fert_final, Male.Colony == "C8" & Female.Colony == "C14" & Temp.Treatment == 27)
+C8.m_C14.f_31C <- filter(fert_final, Male.Colony == "C8" & Female.Colony == "C14" & Temp.Treatment == 31)
+t.test(C8.m_C14.f_27C$prop, C8.m_C14.f_31C$prop)
+
+#C7 male and C8 Female (not significant - not going to bother with reciprocal cross)
+C7.m_C8.f_27C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C8" & Temp.Treatment == 27)
+C7.m_C8.f_31C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C8" & Temp.Treatment == 31)
+t.test(C7.m_C8.f_27C$prop, C7.m_C8.f_31C$prop)
 
 #2020_____________________________________________________________________________
 
@@ -52,6 +90,7 @@ fert2_final <- fert2 %>% #Getting the sums of all the eggs and fertilized eggs b
 fert2_final <- fert2_final %>%
   summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
 
+pdf("Output/Fertilization_2020_Crosses.pdf", width=6, height=5)
 fert2_final %>%
   ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
   geom_jitter(width = 0.1)  +
@@ -62,4 +101,4 @@ fert2_final %>%
   facet_wrap(~ Male.Colony) +
   labs(x = "Female Colonies", y = "Proportion Fertilized") +
   theme_bw()
-
+dev.off()

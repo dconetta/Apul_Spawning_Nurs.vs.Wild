@@ -7,17 +7,17 @@ library(Hmisc)
 library(lubridate)
 library(tidyr)
 library(ggpubr)
+library(broom)
 
 # load data 
 #2019____________________________________________________
-setwd("C:/Users/dcone/Documents/Git-Hub/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 eggs.per.bundle_2019 <- read.csv('Data/Oct_2019/Eggs.per.bundle.counts.csv', header=T, sep=",")
 
 eggs.per.bundle <- eggs.per.bundle_2019 %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-pdf("Output/eggs.per.bundle_2019.pdf")
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2019.pdf")
 eggs.per.bundle %>%
   ggplot(aes(x = Origin, y = Mean.eggs, color = Origin)) +
   labs(x = "", y = "Eggs per Bundle 2019") +
@@ -25,8 +25,8 @@ eggs.per.bundle %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() + 
-  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 #stats
@@ -44,7 +44,7 @@ eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
   group_by(Sample_ID, Species, Origin, Treatment) %>% #Grouping all the wanted variables
   summarise(Mean.eggs = mean(Num.Eggs)) #Summarizing all the wells for each sample-ID and providing new Mean.eggs per sample
 
-pdf("Output/eggs.per.bundle_2020.pdf")
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2020.pdf")
 eggs.per.bundle_2020 %>%
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="", y = "Eggs per Bundle 2020") +
@@ -92,7 +92,7 @@ epb_19_20_final <- epb_19_20 %>% #summarize the mean eggs per bundle for each sa
   group_by(Sample_ID, Treatment, year) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 epb_19_20_final %>% 
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="Treatment", y = "Eggs per Bundle") +
@@ -121,9 +121,11 @@ Fig.1 <- epb_19_20_final %>%
 
 
 #Two_Anova Stats
-model3 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
-plot(model3, 1)
-plot(model3, 2)
-anova(model3)
+model1 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
+plot(model1, 1)
+plot(model1, 2)
+anova(model1)
+
+TukeyHSD(model1)
 
 #no significance
