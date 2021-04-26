@@ -40,7 +40,7 @@ Oct.fec_1.0 <- left_join(Oct.fec_1, SA, by="sample_id")
 
 Oct.fec_1.0$fecundity <-Oct.fec_1.0$tot.eggs/Oct.fec_1.0$surface.area.cm2
 
-#pdf("Output/Fecundity.pdf")
+pdf("Output/Fecundity/Fecundity_2019.pdf")
 Oct.fec_1.0 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2", color = "Treatment") +
@@ -89,7 +89,7 @@ Oct.fec_2.0 <- Oct.fec_2 %>%
 Oct.fec_final <- left_join(SA_2, Oct.fec_2.0, by="sample_id")
 Oct.fec_final$fecundity <-Oct.fec_final$tot.eggs/Oct.fec_final$surface.area.cm2
 
-#pdf("Output/Fecundity2020.pdf")
+pdf("Output/Fecundity/Fecundity_2020.pdf")
 Oct.fec_final %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity eggs/cm2") +
@@ -97,8 +97,8 @@ Oct.fec_final %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+
-  #stat_compare_means(method = "t.test")
+  theme_classic() +
+  stat_compare_means(method = "t.test")
 dev.off()
 
 #stats
@@ -117,7 +117,7 @@ fec.20_final <- Oct.fec_final %>%
 
 fec_19_20 <- full_join(fec.19_final, fec.20_final) 
 
-#pdf("Output/Fecundity_2019v2020.pdf")
+pdf("Output/Fecundity/Fecundity_2019v2020.pdf")
 fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
   labs(x = "Treatment", y = "Fecundity (eggs/cm2)", color = "Treatment") +
@@ -126,8 +126,9 @@ fec_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+
-dev.off() #stat_compare_means(method = "t.test")
+  theme_classic() +
+  stat_compare_means(method = "t.test")
+dev.off() 
 
 Fig.4 <- fec_19_20 %>%
   ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
@@ -137,8 +138,8 @@ Fig.4 <- fec_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+
-  #stat_compare_means(method = "t.test")
+  theme_classic() +
+  stat_compare_means(method = "t.test")
 
 #Two_Way Anova for Fecundity
 model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)

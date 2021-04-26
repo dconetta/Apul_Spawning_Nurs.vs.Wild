@@ -21,7 +21,7 @@ egg.size.mean <- egg.size %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.size = mean(Diameter1_long))
 
-#pdf("Output/egg.size.pdf")
+pdf("Output/Egg_Size/egg_size_2019.pdf")
 egg.size.mean %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
   labs(x = "", y = "Egg Diameter (mm)") +
@@ -44,7 +44,7 @@ egg.size2.mean <- egg.size2 %>%
   group_by(Sample_ID, Origin) %>%
   summarise(Mean.size = mean(Diam_long_mm))
 
-#pdf("Output/egg.size.pdf")
+pdf("Output/Egg_Size/egg_size_2020.pdf")
 egg.size2.mean %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
   labs(x = "", y = "Egg Diameter (mm)") +
@@ -106,8 +106,8 @@ Fig.2 <- es_19_20 %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 #Stats (Anova to compare means between treatment and year)
 model2 <- aov(Mean.size ~ Treatment*year, data = es_19_20)
