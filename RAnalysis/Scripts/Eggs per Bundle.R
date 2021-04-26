@@ -44,7 +44,7 @@ eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
   group_by(Sample_ID, Species, Origin, Treatment) %>% #Grouping all the wanted variables
   summarise(Mean.eggs = mean(Num.Eggs)) #Summarizing all the wells for each sample-ID and providing new Mean.eggs per sample
 
-#pdf("Output/eggs.per.bundle_2020.pdf")
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2020.pdf")
 eggs.per.bundle_2020 %>%
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="", y = "Eggs per Bundle 2020") +
@@ -52,8 +52,8 @@ eggs.per.bundle_2020 %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 #stats
@@ -92,7 +92,7 @@ epb_19_20_final <- epb_19_20 %>% #summarize the mean eggs per bundle for each sa
   group_by(Sample_ID, Treatment, year) %>%
   summarise(Mean.eggs = mean(Num.Eggs))
 
-#pdf("Output/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 epb_19_20_final %>% 
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
   labs(x ="Treatment", y = "Eggs per Bundle") +
@@ -101,8 +101,8 @@ epb_19_20_final %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 dev.off()
 
 
