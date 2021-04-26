@@ -21,7 +21,7 @@ egg.size.mean <- egg.size %>%
   group_by(Sample_ID, Origin ) %>%
   summarise(Mean.size = mean(Diameter1_long))
 
-#pdf("Output/egg.size.pdf")
+pdf("Output/Egg_Size/egg_size_2019.pdf")
 egg.size.mean %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
   labs(x = "", y = "Egg Diameter (mm)") +
@@ -44,7 +44,7 @@ egg.size2.mean <- egg.size2 %>%
   group_by(Sample_ID, Origin) %>%
   summarise(Mean.size = mean(Diam_long_mm))
 
-#pdf("Output/egg.size.pdf")
+pdf("Output/Egg_Size/egg_size_2020.pdf")
 egg.size2.mean %>%
   ggplot(aes(x = Origin, y = Mean.size, color = Origin)) +
   labs(x = "", y = "Egg Diameter (mm)") +
