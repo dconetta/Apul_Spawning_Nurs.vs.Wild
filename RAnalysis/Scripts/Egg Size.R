@@ -106,8 +106,8 @@ Fig.2 <- es_19_20 %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 #Stats (Anova to compare means between treatment and year)
 model2 <- aov(Mean.size ~ Treatment*year, data = es_19_20)

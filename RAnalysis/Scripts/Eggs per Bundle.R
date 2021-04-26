@@ -116,8 +116,8 @@ Fig.1 <- epb_19_20_final %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 
 #Two_Anova Stats
