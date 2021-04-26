@@ -44,7 +44,7 @@ egg.ratio20 <- egg.size2.0 %>%
 
 egg_ratio_19_20 <- full_join(egg.ratio19, egg.ratio20) 
 
-#pdf("Output/egg.ratio_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
+pdf("Output/Egg_Ratio/egg.ratio_2019.v.2020.pdf") #output PDF of 2019 and 2020 comparisons 
 egg_ratio_19_20 %>%
   ggplot(aes(x = Treatment, y = Mean.ratio, color = Treatment)) +
   labs(x = "Treatment", y = "Egg Diameter Ratio") +
@@ -53,8 +53,9 @@ egg_ratio_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+dev.off()
 
 Fig.3 <- egg_ratio_19_20 %>%
   ggplot(aes(x = Treatment, y = Mean.ratio, color = Treatment)) +
@@ -64,8 +65,8 @@ Fig.3 <- egg_ratio_19_20 %>%
   stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 #Stats (T-test within year, Anova to compare means between treatment and year)
 t.test(Mean.ratio ~ Treatment, data = egg.ratio19) #Statistically significant if p-value <0.05
