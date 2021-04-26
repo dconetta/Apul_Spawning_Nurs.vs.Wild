@@ -1,0 +1,104 @@
+---
+title: "Code and Figures Walk-through for Final Project"
+author: "Dennis Conetta"
+date: "4/22/2021"
+output: pdf_document
+---
+
+This document will run through all the figures and code that was used to make the final report. 
+There were five major metrics used in my final report to talk about coral reproductive output:
+
+|         1) Eggs per Bundle
+|         2) Egg Size
+|         3) Egg Ratio (longest diameter vs perpendicular ratio)
+|         4) Fecundity (number of eggs per cm^2 of coral)
+|               - Then I will put all four of these metrics together in one figure
+|         5) Fertilization (proportion of eggs fertilized per unique cross)
+|               - Separated by year
+
+
+# 1 Eggs per Bundle
+
+The species *Acropora pulchra* is a broadcast spawner which means it releases gametes into the water column where they get fertilized. Specifically how they do this is by releasing bundles that are filled with egg and sperm together. These will float to the surface when they are released by the polyp around spawning and over time the bundle breaks down and the sperm and egg are released to fertilize and get fertilized by other individuals in the water column. 
+
+First load libraries needed to work with this data, set workind directory and read csv file for that year
+
+```{r Libraries, include=FALSE}
+#load libraries
+library(tidyverse)
+#library(Hmisc)
+library(lubridate)
+library(tidyr)
+#library(ggpubr)
+
+# load data 
+##set working directory to where ever you saved it and then tab into RAnalysis within Apul_Spawning_Nurs.vs.Wild
+
+setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis") 
+eggs.per.bundle_2019 <- read.csv('Data/Oct_2019/Eggs.per.bundle.counts.csv', header=T, sep=",")
+
+
+```
+
+
+Using a pipe I created a new variable that contained a subset of the orignal data set, which  only include Origin and Sample_ID. Each Sample_ID had 24 counts of eggs per bundle which then I took the means for number of eggs per bundle by the unique coral colony ID using the summarise function. 
+
+Then using that newly created data set I graphed a scatter plot of average number of eggs per bundle by Origin (Nursery vs Wild). Each data point represents the average eggs per bundle. The black dots and error bars represent the mean and standard error for each Origin. 
+
+
+```{r Eggs per Bundle_2019 Scatterplot, echo=FALSE, message=FALSE, warning=FALSE}
+
+eggs.per.bundle <- eggs.per.bundle_2019 %>%
+  group_by(Sample_ID, Origin ) %>%
+  summarise(Mean.eggs = mean(Num.Eggs))
+
+eggs.per.bundle %>%
+  ggplot(aes(x = Origin, y = Mean.eggs, color = Origin)) +
+  labs(x = "", y = "Eggs per Bundle 2019") +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() #+
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+
+
+```
+Then a t.test was run to compare the eggs per bundle data between the nursery reared and wild colonies.
+
+```{r Eggs per Bundle_2019 t-test, echo=FALSE, message=FALSE, warning=FALSE}
+t.test(Mean.eggs~Origin, data = eggs.per.bundle) #Statistically significant if p-value <0.05
+```
+
+This process is repeated for all of the 2020 data. However, because multiple sites and species were used in 2020 we had to filter the data so it was just comparing the same wild and nursery corals.
+
+```{r Eggs per Bundle_2020 Data Upload and Figure, echo=FALSE, message=FALSE, warning=FALSE}
+setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
+eggs.per.bundle2 <-read.csv('Data/Oct_2020/Eggs.per.bundle_2020.csv', header=T, sep=",")
+eggs.per.bundle2.0 <- filter(eggs.per.bundle2, !is.na(Num.Eggs)) #getting rid of all NA values for num eggs column
+
+eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
+  filter(Species=="A.pulchra") %>% #Filtering out A. cyatherea
+  filter(Origin=="Mahana" | Origin=="Nursery") %>% #filtering out A.pulchra from Manava, Linareva 
+  filter(Treatment=="Nursery" | Treatment=="Wild") %>% #filtering out A.pulchra that was outplanted
+  group_by(Sample_ID, Species, Origin, Treatment) %>% #Grouping all the wanted variables
+  summarise(Mean.eggs = mean(Num.Eggs)) #Summarizing all the wells for each sample-ID and providing new Mean.eggs per sample
+
+eggs.per.bundle_2020 %>%
+  ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="", y = "Eggs per Bundle 2020") +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() #+ 
+  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+
+```
+
+```{r Eggs per Bundle_2020 t-test, echo=FALSE, message=FALSE, warning=FALSE}
+t.test(Mean.eggs~Origin, data = eggs.per.bundle_2020) #Statistically significant if p-value <0.05
+```
+
+
+Once each year was run separately to confirm both data sets worked, I combined the data and produced a figure with both years. Each t-test value for each in
