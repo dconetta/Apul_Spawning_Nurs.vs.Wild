@@ -15,6 +15,9 @@ There were five major metrics used in my final report to talk about coral reprod
 |               - Then I will put all four of these metrics together in one figure
 |         5) Fertilization (proportion of eggs fertilized per unique cross)
 |               - Separated by year
+|               ***All data followed the same course of action so I will describe the process in detail for the*** ***first metric*** 
+|               ***but for the others I will just describe the process in the code.*** 
+               
 
 
 # 1 Eggs per Bundle
@@ -26,15 +29,15 @@ First load libraries needed to work with this data, set workind directory and re
 ```{r Libraries, include=FALSE}
 #load libraries
 library(tidyverse)
-#library(Hmisc)
+library(Hmisc)
 library(lubridate)
 library(tidyr)
-#library(ggpubr)
+library(ggpubr)
 
 # load data 
 ##set working directory to where ever you saved it and then tab into RAnalysis within Apul_Spawning_Nurs.vs.Wild
 
-setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis") 
+setwd("~/Documents/Dennis_URI_Stats_Work/Apul_Spawning_Nurs.vs.Wild/RAnalysis") # my local drive so the working directory will be different for others when they git clone my directory
 eggs.per.bundle_2019 <- read.csv('Data/Oct_2019/Eggs.per.bundle.counts.csv', header=T, sep=",")
 
 
@@ -59,21 +62,20 @@ eggs.per.bundle %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() +
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 
 ```
 Then a t.test was run to compare the eggs per bundle data between the nursery reared and wild colonies.
 
-```{r Eggs per Bundle_2019 t-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Eggs per Bundle_2019 t-test, include=FALSE}
 t.test(Mean.eggs~Origin, data = eggs.per.bundle) #Statistically significant if p-value <0.05
 ```
 
-This process is repeated for all of the 2020 data. However, because multiple sites and species were used in 2020 we had to filter the data so it was just comparing the same wild and nursery corals.
+This process is repeated for all of the 2020 data. However, because multiple sites and species were used in 2020 we had to filter the data so it was just comparing the same Acropora pulchra wild (from Mahana) and nursery corals.
 
 ```{r Eggs per Bundle_2020 Data Upload and Figure, echo=FALSE, message=FALSE, warning=FALSE}
-setwd("~/BIO-539_Big_Data/Final Project/Apul_Spawning_Project/Apul_Spawning_Nurs.vs.Wild/RAnalysis")
 eggs.per.bundle2 <-read.csv('Data/Oct_2020/Eggs.per.bundle_2020.csv', header=T, sep=",")
 eggs.per.bundle2.0 <- filter(eggs.per.bundle2, !is.na(Num.Eggs)) #getting rid of all NA values for num eggs column
 
@@ -91,14 +93,467 @@ eggs.per.bundle_2020 %>%
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
   stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
-  theme_classic() #+ 
-  #stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
 
 ```
 
-```{r Eggs per Bundle_2020 t-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Eggs per Bundle_2020 t-test, include=FALSE}
 t.test(Mean.eggs~Origin, data = eggs.per.bundle_2020) #Statistically significant if p-value <0.05
 ```
 
 
-Once each year was run separately to confirm both data sets worked, I combined the data and produced a figure with both years. Each t-test value for each in
+Once each year was run separately to confirm both data sets worked, I combined the data and produced a figure with both years. First thing I had to do was extract the year out of the 2019 data set so I could use the year column for both 2019 and 2020. Once that was done I did a full merge to get all the data into one file and then summarized the means of eggs per bundle by each sample_ID and year. 
+
+```{r merging 2019 with 2020 eggs per bundle, echo=FALSE, message=FALSE, warning=FALSE}
+
+#Make new column for 2019 to break out Spawn.Date into YMD separately
+
+epb19 <- eggs.per.bundle_2019 %>%
+  mutate(Spawn.Date = ymd(Spawn.Date)) %>%
+  mutate(year = year(Spawn.Date)) %>%
+  mutate(Treatment = Origin) %>%
+  group_by(Spawn.Date, year, Species, Sample_ID, Origin, Well.Num, Num.Eggs)
+
+#make a new column for year from Spawn.Date in 2020 data set
+epb20 <- eggs.per.bundle2.0 %>%
+  filter(Species=="A.pulchra") %>% 
+  filter(Origin=="Mahana" | Origin=="Nursery") %>%
+  filter(Treatment=="Nursery" | Treatment=="Wild") %>%
+  mutate(Spawn.Date = ymd(Spawn.Date)) %>%
+  mutate(year = year(Spawn.Date)) %>%
+  group_by(Spawn.Date, year, Species, Sample_ID, Origin, Treatment, Well.Num, Num.Eggs)
+
+#Merge epb19 and epb20 data sets to be able to compare the data between both
+epb_19_20 <- full_join(epb19, epb20,
+                        by = c("Spawn.Date", "Species", "Sample_ID", "Origin", "Treatment", "Well.Num", "Num.Eggs", "year"))
+
+#summarize the mean eggs per bundle for each sample_ID
+epb_19_20_final <- epb_19_20 %>% 
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.eggs = mean(Num.Eggs))
+
+```
+
+Once all of the data was merged the two years of data were graphed side by side in a similar fashion to how they were plotted side by side (scatter plot for each treatment with the mean and standard error represented and the t-test of each year displayed). I saved this as Fig 1 and subsequent plots with ascending numeric labels so when I graph Eggs per Bundle, Egg Size, Egg Ratio, and Fecundity I can simply call them all back with simple code.
+
+```{r Combined 19/20 Figure for Eggs per Bundle,  echo=FALSE, message=FALSE, warning=FALSE}
+Fig.1 <- epb_19_20_final %>% 
+  ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="Treatment", y = "Eggs per Bundle") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+Fig.1
+
+```
+
+
+Lastly, the proper statistical test was run (two way ANOVA) to test for differences among the average eggs per bundle by treatment, year and the interaction of the two factors. For some reason I could not get the TukeyHSD command to work for these models that I created so I reused the t-test for each year to give me similar information.
+
+```{r ANOVA Eggs per Bundle, include=FALSE}
+
+#Two_Anova Stats
+model1 <- aov(Mean.eggs ~ Treatment*year, data = epb_19_20_final)
+plot(model1, 1)
+plot(model1, 2)
+anova(model1)
+
+
+```
+
+
+# 2) Egg Size
+
+Using egg diameters that were calculated in ImageJ, (>75 eggs per sample) we used the longest diameter as a proxy for egg size. So similar to eggs per bundle egg size was calculated per colony_id for each year separately and graphed individually before merging and making the final figure. 
+
+Following the same structure as Eggs per Bundle, the 2019 and 2020 data were first filtered and graphed separately, then joined and graphed together with each year's t-test exhibited. Then a two-way ANOVA was run to test between the average egg ration between treatment, year and the interaction of the two.
+
+```{r Egg Size 2019 and 2020 data, echo=FALSE, message=FALSE, warning=FALSE}
+#2019 Data:______________
+
+egg.size <-read.csv('Data/Oct_2019/2019_October_Egg_Size.csv', header=T, sep=",") #read file and create variable
+
+#filter and summarize for the mean of the longest diameter (Diameter1_long) by Sample_ID and Origin
+egg.size.mean <- egg.size %>% 
+  group_by(Sample_ID, Origin ) %>%
+  summarise(Mean.size = mean(Diameter1_long))
+
+#2020 Data:______________
+
+egg.size2 <-read.csv('Data/Oct_2020/2020_October_Egg_Size.csv', header=T, sep=",")
+
+egg.size2.mean <- egg.size2 %>%
+  group_by(Sample_ID, Origin) %>%
+  summarise(Mean.size = mean(Diam_long_mm))
+
+#Merge and Plot 2019 and 2020_______________________________________________________
+
+#Making year column and limiting number of columns so when full join it is cohesive/they all have same columns
+es19 <- egg.size %>%
+  mutate(Date = ymd(Date)) %>% #formatting Date 
+  mutate(year = year(Date)) %>% #adding a year column
+  mutate(Treatment = Origin) %>%
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.size = mean(Diameter1_long))
+
+#adding a treatment column in 2020 data that has Wild and Nursery based off of values/strings in Origin  
+egg.size2.0 <- egg.size2 %>% 
+  mutate(Treatment = case_when(
+    endsWith(Origin, "a") ~ "Wild",
+    endsWith(Origin, "y") ~ "Nursery",
+  )) #adding a treatment column
+
+es20 <- egg.size2.0 %>%
+  mutate(Date = ymd(Date)) %>% #formatting Date 
+  mutate(year = year(Date)) %>% #adding a year column
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.size = mean(Diam_long_mm))
+
+#Merge es19 and es20
+es_19_20 <- full_join(es19, es20)
+
+#plot both 2019 and 2020 Egg Size (will include t-test for each year) - saving it as Fig 2
+Fig.2 <- es_19_20 %>% 
+  ggplot(aes(x = Treatment, y = Mean.size, color = Treatment)) +
+  labs(x ="Treatment", y = "Egg Diameter (mm)") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean and standard error
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #list out the t-test for each year under facet wrap
+Fig.2
+
+#Stats (Anova to compare means between treatment and year) - in tandem with t-test on figure allow to parse apart specifics (couldnt get TukeyHSD to work)
+model2 <- aov(Mean.size ~ Treatment*year, data = es_19_20)
+summary(model2)
+plot(model2, 1) #plotting residuals
+plot(model2, 2) #plotting the normality to see if it look normally distributed
+anova(model2)
+
+```
+
+
+# 3) Egg Ratio
+
+Using the two diameters that were measured in ImageJ (the longest diameter and the one directly perpendicular to that), the ratio of the longest and perpendicular diameters were used to create ratios. Ratios tell us the roundness of the egg which is a very important metric in coral reproduction because in the literature it has stated that rounder eggs have higher lipid content, are fertilized more, and are more likely to produce viable larvae. So ratios closer to 1 are eggs considered more round than those further away from a proportion of 1. 
+
+Following the same structure as Eggs per Bundle and Egg Size, the 2019 and 2020 data were first filtered and graphed separately, then joined and graphed together with each year's t-test exhibited. Then a two-way ANOVA was run to test between the average egg ration between treatment, year and the interaction of the two.
+
+```{r Egg Ratio data, echo=FALSE, message=FALSE, warning=FALSE}
+#Egg Ratio__________________________________________________________
+
+#2019
+egg.size <-read.csv('Data/Oct_2019/2019_October_Egg_Size.csv', header=T, sep=",") #Load 2019 data
+egg.size$ratio <- egg.size$Diameter1_long/egg.size$Diameter2_short #make a ratio
+
+egg.ratio19 <- egg.size %>%
+  mutate(Date = ymd(Date)) %>% #formatting Date 
+  mutate(year = year(Date)) %>% #adding a year column
+  mutate(Treatment = Origin) %>%
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.ratio = mean(ratio))
+
+#2020
+egg.size2 <-read.csv('Data/Oct_2020/2020_October_Egg_Size.csv', header=T, sep=",")
+egg.size2$ratio <- egg.size2$Diam_long_mm/egg.size2$Diam_short_mm #make a ratio
+
+#adding a treatment column that has Wild and Nursery based off of values/strings in Origin
+egg.size2.0 <- egg.size2 %>% 
+  mutate(Treatment = case_when(
+    endsWith(Origin, "a") ~ "Wild",
+    endsWith(Origin, "y") ~ "Nursery",
+  )) 
+
+#Adding a year column and summarizing to same columns as 2019 before combining them
+egg.ratio20 <- egg.size2.0 %>%
+  mutate(Date = ymd(Date)) %>% #formatting Date 
+  mutate(year = year(Date)) %>% #adding a year column
+  group_by(Sample_ID, Treatment, year) %>%
+  summarise(Mean.ratio = mean(ratio))
+
+#Merge and Compare
+
+egg_ratio_19_20 <- full_join(egg.ratio19, egg.ratio20)
+
+Fig.3 <- egg_ratio_19_20 %>%
+  ggplot(aes(x = Treatment, y = Mean.ratio, color = Treatment)) +
+  labs(x = "Treatment", y = "Egg Diameter Ratio") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() + 
+  stat_compare_means(method = "t.test") #adding t.test comparisons/significance to ggplots
+Fig.3
+
+#Stats (T-test within year, Anova to compare means between treatment and year)
+t.test(Mean.ratio ~ Treatment, data = egg.ratio19) #Statistically significant if p-value <0.05
+t.test(Mean.ratio ~ Treatment, data = egg.ratio20) #Statistically significant if p-value <0.05
+
+model3 <- aov(Mean.ratio ~ Treatment*year, data = egg_ratio_19_20)
+plot(model3, 1)
+plot(model3, 2)
+anova(model3)
+
+```
+
+
+# 4) Fecundity
+
+Each spawning evening, fragments were clipped off of each colony prior to spawning that looked "set" or ready to release bundles of each evening. These fragments were isolated in 50mL falcon tubes with 0.2 micron filtered seawater and left to release bundles throughout the evening. These bundles were collected and preserved and the number of eggs were counted from photographs of the preserved eggs under a microscope. Then the fragment was saved and measured at a dry weight, wax dipped and weighed again to calculate surface area. Surface area was calculated from the equation of the line produced by a known set of surface area standards (wooden spheres) that were wax dipped to correlate weight to surface area. The number of eggs released per cm^2 of coral is calculated and that is metric we call Fecundity.
+
+Following the same structure as Eggs per Bundle, Egg Size, and Egg Ratio the 2019 and 2020 data were first filtered and graphed separately, then joined and graphed together with each year's t-test exhibited. Then a two-way ANOVA was run to test between the average egg ration between treatment, year and the interaction of the two. The first year we only had 3 colonies in the nursery treatment and 1 in the wild so no t-test value is available since there are too few observations for a mean in the wild treatment. 
+
+Unlike the last three metrics, for this data we needed to calculate the equation of the line and check the validity of our standards first, calculate surface area within that standards file, calculate the surface areas based off of these standards for our experimental fragments, merge the surface area file with the egg count files and create a fecundity column. This was done separately for each year and then the two years were graphed together. 
+
+```{r 2019 Fecundity data, echo=FALSE, message=FALSE, warning=FALSE}
+#2019__________________________________________________________________________________________
+#standard curve to get SA
+wax.stds<-read.csv('Data/Oct_2019/wax.standards_1.csv', header=T, sep=",")
+wax.stds$delta.mass.g <- wax.stds$weight2.g - wax.stds$weight1.g
+plot(surface.area.cm2~delta.mass.g, data = wax.stds)
+model <- lm(surface.area.cm2~delta.mass.g , data = wax.stds)
+abline(model, col = "red")
+summary(model)
+
+#Calculate Surface Area based off of standards for experimental fragments
+SA<-read.csv('Data/Oct_2019/Apul_Wax_Data.csv', header=T, sep=",")
+SA$surface.area.cm2 <- (model$coefficients[2]*(SA$waxedmass.g - SA$mass.g)) + model$coefficients[1]
+
+# load Fecundity data 
+Oct.fec <- read.csv('Data/Oct_2019/2019_October_Fecundity.csv', header=T, sep=",")
+
+Oct.fec_1 <- Oct.fec %>%
+  mutate(Date = ymd(Date)) %>% #formatting Date 
+  mutate(year = year(Date)) %>%
+  mutate(treatment = Origin) %>%
+  group_by(sample_id, treatment, year) %>%
+  summarise(tot.eggs = sum(Total_number))
+
+#merging the surface areas with the egg count file for 2019
+Oct.fec_1.0 <- left_join(Oct.fec_1, SA, by="sample_id") 
+
+#calculating fecundity once and for all
+Oct.fec_1.0$fecundity <-Oct.fec_1.0$tot.eggs/Oct.fec_1.0$surface.area.cm2 
+
+#Make figure for these fecundity data 
+
+Oct.fec_1.0 %>%
+  ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
+  labs(x = "Treatment", y = "Fecundity eggs/cm2", color = "Treatment") +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic()
+
+#stats
+#t.test(fecundity~treatment, data = Oct.fec_1.0) #not enough observations (only one for wild so cannot run t.test)
+```
+
+And then for 2020 Fecundity:
+
+```{r 2020 Fecundity data, echo=FALSE, message=FALSE, warning=FALSE}
+
+wax.stds2<-read.csv('Data/Oct_2020/wax.standards_1.csv', header=T, sep=",")
+wax.stds2$delta.mass.g <- wax.stds2$weight2.g - wax.stds2$weight1.g
+
+#calculate the surface area of standards
+wax.stds2 <- wax.stds2 %>%
+  mutate(surface.area.cm2 = (4*pi*(diameter/2)^2))
+
+#Look at standards and make sure R^2 value is greater than .95
+plot(surface.area.cm2~delta.mass.g, data = wax.stds2)
+model <- lm(surface.area.cm2~delta.mass.g , data = wax.stds2)
+abline(model, col = "red")
+summary(model)
+
+#Calculate the Surface Areas for all 2020 Acropora pulchra samples - need to filter since multiple species and sites present for this data set
+SA_2<-read.csv('Data/Oct_2020/Fecundity_Surface_Area.csv', header=T, sep=",") %>%
+  filter(species == "A.pulchra") %>%
+  filter(origin=="Mahana" | origin=="Nursery") %>%
+  filter(treatment == "Wild" | treatment == "Nursery")
+
+SA_2$surface.area.cm2 <- (model$coefficients[2]*(SA_2$weight2.g - SA_2$weight1.g)) + model$coefficients[1]
+ 
+#filtering egg counts in 2020 for just Wild (Mahana site only) and Acropora pulchra
+Oct.fec_2 <- read.csv('Data/Oct_2020/2020_October_Fecundity_counts.csv', header=T, sep=",")
+Oct.fec_2.0 <- Oct.fec_2 %>%
+  filter(!is.na(Total_number)) %>%
+  filter(Species == "A. pulchra") %>%
+  filter(Origin == "Wild" | Origin == "Nursery") %>%
+  group_by(sample_id, Origin) %>%
+  summarise(tot.eggs = sum(Total_number))
+
+#Join all Surface areas with egg counts
+Oct.fec_final <- left_join(SA_2, Oct.fec_2.0, by="sample_id")
+Oct.fec_final$fecundity <-Oct.fec_final$tot.eggs/Oct.fec_final$surface.area.cm2
+
+#plotting 2020 data
+Oct.fec_final %>%
+  ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
+  labs(x = "Treatment", y = "Fecundity eggs/cm2") +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() +
+  stat_compare_means(method = "t.test")
+
+#stats for 2020
+#stats
+t.test(fecundity~treatment, data = Oct.fec_final) #Statistically significant if p-value <0.05
+```
+
+Merge both 2019 and 2020, graph them, run two-way ANOVA
+
+```{r 19-20 Fecundity Merge and Plot, echo=FALSE, message=FALSE, warning=FALSE}
+#Simplifying 2019 data set to just display sample_id, treatment, year, and fecundity columns
+fec.19_final <- subset(Oct.fec_1.0, select = c("sample_id", "treatment", "year", "fecundity")) 
+
+#cleaning up 2020 data in same way but 2020 did not have year in it so had to add it in.
+fec.20_final <- Oct.fec_final %>%
+  mutate(spawn.date = ymd(spawn.date)) %>% 
+  mutate(year = year(spawn.date)) %>%
+  subset(select = c("sample_id", "treatment", "year", "fecundity"))
+
+#Merging 2019 with 2020
+fec_19_20 <- full_join(fec.19_final, fec.20_final) 
+
+#Final figure saved as Fig.4
+Fig.4 <- fec_19_20 %>%
+  ggplot(aes(x = treatment, y = fecundity, color = treatment)) +
+  labs(x = "Treatment", y = "Fecundity (eggs/cm2)", color = "Treatment") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() +
+  stat_compare_means(method = "t.test")
+Fig.4
+
+#Two_Way Anova for Fecundity - all model numbers correspond to the figure numbers
+model4 <- aov(fecundity ~ treatment*year, data = fec_19_20)
+plot(model4, 1)
+plot(model4, 2)
+anova(model4)
+
+```
+
+Now that all the characteristics have been graphed and saved they will all be put into the same figure to show reproductive characteristics measured each year for each colony sampled. 
+
+```{r All Reproductive Metrics Figure, echo=FALSE, message=FALSE, warning=FALSE}
+#Putting all figures together into one large Figure. It looks better as a PDF which is what I did in my actual script file
+Rep_Char_Fig_Final <- ggarrange(Fig.1,Fig.2,Fig.3,Fig.4, ncol = 2, nrow = 2)
+Rep_Char_Fig_Final
+
+```
+
+
+# 5) Fertilization Success
+
+Fertilization success was measured by isolating sperm and egg from each colony, and crossing sperm and egg of separate colonies with one another. These crosses were replicated in 5-10 vials depending on the amount of the limiting gamete, and reared in both ambient and heat stress conditions for three hours and then fixed. The total number of eggs and the total number of fertilized eggs were counted from photographs of the preserved samples. These values were then used to calculate the proportion which represents the amount of fertilization that occurred. These values range from 0-1 since they were not converted to percentages. 
+
+For these metrics I kept the 2019 and 2020 data separate because of how they were sampled and the treatments that were present in each were not consistent. 2019 = individuals crosses between nursery colonies ONLY ; 2020 = pooled wild crosses and only one cross possible from the nursery.
+
+```{r Fertilization 2019, echo=FALSE, message=FALSE, warning=FALSE}
+
+fert <-read.csv('Data/Oct_2019/2019_October_Fertilization_specific_crosses.csv', header=T, sep=",")
+
+#Making proportions and standardizing columns names between 2019 and 2020 if they were to be compared but they won't as of yet
+fert_final <- fert %>%
+  mutate(prop = (Fertilized_eggs/fert$Total_eggs)) %>%
+  mutate(Temp.Treatment = Temperature) %>% 
+  mutate(Male.Colony = Colony_Male) %>% #aligning all the male colonies
+  mutate(Female.Colony = Colony_Female) %>%
+  mutate(Temp.Treatment = as.factor(Temp.Treatment)) %>% #making temperature a factor not numeric
+  mutate(Tube.Number = Tube_Number) %>%
+  summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
+
+#plot by Male Colony and listing the average proportion values per temperature treatment for eggs from each colony that it was crossed with
+
+fert_final %>%
+  ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
+  geom_jitter(width = 0.1)  +
+  scale_color_manual(values=c("cyan", "coral")) +
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  facet_wrap(~ Male.Colony) +
+  labs(x = "Female Colonies", y = "Proportion Fertilized", color = "Treatment") +
+  theme_bw()
+
+```
+
+Stats for 2019 Crosses
+
+```{r Fert 2019 Stats, include=FALSE}
+
+#STATS - (only on crosses which had more than zero and their reciprocals)
+#Some sort of nest approach needed but right now do not know what that is so in mean time running t.test on all  temperature treatments of each cross, requires filtering and then t.test
+
+#C7 female and C14 male (significant - mean for ambient double the amount of the heat)
+C7.f_C14.m_27C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C7" & Temp.Treatment == 27)
+C7.f_C14.m_31C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C7" & Temp.Treatment == 31)
+t.test(C7.f_C14.m_27C$prop, C7.f_C14.m_31C$prop)
+
+#C14 female and C7 male (not significant) - means are basically zero.
+C7.m_C14.f_27C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C14" & Temp.Treatment == 27)
+C7.m_C14.f_31C <- filter(fert_final, Male.Colony == "C7" & Female.Colony == "C14" & Temp.Treatment == 31)
+t.test(C7.m_C14.f_27C$prop, C7.m_C14.f_31C$prop)
+
+#C8 female and C14 male (significant - ambient five times larger than heat)
+C8.f_C14.m_27C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C8" & Temp.Treatment == 27)
+C8.f_C14.m_31C <- filter(fert_final, Male.Colony == "C14" & Female.Colony == "C8" & Temp.Treatment == 31)
+t.test(C8.f_C14.m_27C$prop, C8.f_C14.m_31C$prop)
+
+#C14 female and C8 male (not significant)
+C8.m_C14.f_27C <- filter(fert_final, Male.Colony == "C8" & Female.Colony == "C14" & Temp.Treatment == 27)
+C8.m_C14.f_31C <- filter(fert_final, Male.Colony == "C8" & Female.Colony == "C14" & Temp.Treatment == 31)
+t.test(C8.m_C14.f_27C$prop, C8.m_C14.f_31C$prop)
+
+```
+
+2020 Fertilization Figure 
+
+```{r Fertilization 2020, echo=FALSE, message=FALSE, warning=FALSE}
+
+fert2 <-read.csv('Data/Oct_2020/2020_Fertilization_Success.csv', header=T, sep=",")
+
+#Getting the sums of all the eggs and fertilized eggs by tube number and making a proportion column - represents fert success
+fert2_final <- fert2 %>% 
+  mutate(Date.Crossed = ymd(Date.Crossed)) %>%
+  mutate(year = year(Date.Crossed)) %>%
+  group_by(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year) %>%
+  summarise(tot.fert = sum(Fert.Eggs), tot.eggs = sum(Total.Eggs)) %>% #sum all eggs and fert egg counts for each tube
+  mutate(prop=(tot.fert/tot.eggs)) %>% #make proportion of fertilized eggs and total egg counts
+  filter(!is.na(prop)) %>% #take out all NA values in prop column
+  mutate(Temp.Treatment = as.factor(Temp.Treatment)) #making sure it is seeing Temp as Factor not numeric
+
+#Simplifying data set to just the columns I want
+fert2_final <- fert2_final %>%
+  summarise(Tube.Number, Temp.Treatment, Male.Colony, Female.Colony, year, prop)
+
+#plotting figure
+fert2_final %>%
+  ggplot(aes(x = Female.Colony, y = prop, group = Temp.Treatment, color = Temp.Treatment)) +
+  geom_jitter(width = 0.1)  +
+  scale_color_manual(values=c("cyan", "coral")) +
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  facet_wrap(~ Male.Colony) +
+  labs(x = "Female Colonies", y = "Proportion Fertilized") +
+  theme_bw()
+```
+
+No stats were run on 2020 fertilization data because not sure if will be able to use this data, depends on how 2021 spawning season goes. If we can get 4-7 individual crosses for Wild and Nursery at both temp treatments as well as pooled crosses for both we might be able to correlate 2019 and 2020 data but if not might cut it out completely. 
