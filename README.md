@@ -6,7 +6,7 @@ This repository holds data collected on the reproductive capacity of Acropora pu
 sites in Mo'orea, French Polynesia. These data are held under the RAnalysis folder under the "Data" folder which is separated
 by the years data was collected (2019 and 2020). These data were collected by Dennis Conetta, Kevin Wong, and Danielle 
 Becker of the Putnam Lab as well as Laetitia Hedioun, Yann Lacube, Camille Leonardson and all volunteers of CRIOBE
-research station in Mo'orea French Polynesia. These data are aparat of a long-term reproductive time series on Acroporid 
+research station in Mo'orea French Polynesia. These data are apart of a long-term reproductive time series on Acroporid 
 corals.
 
 Structure of Repository:
