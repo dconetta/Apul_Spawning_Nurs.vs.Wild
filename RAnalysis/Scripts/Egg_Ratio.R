@@ -40,7 +40,21 @@ egg.ratio20 <- egg.size2.0 %>%
   group_by(Sample_ID, Treatment, year) %>%
   summarise(Mean.ratio = mean(ratio))
 
-#Merge and Compare
+#plot 2020 data
+pdf("Output/Egg_Ratio/egg_ratio_2020.pdf")
+egg.ratio20 %>%
+  ggplot(aes(x = Treatment, y = Mean.ratio, color = Treatment)) +
+  labs(x = "Treatment", y = "Egg Diameter Ratio") +
+  facet_wrap(~year) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = mean_cl_normal, fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic() + 
+  stat_compare_means(method = "t.test")
+dev.off()
+
+#Merge and Compare 2019 and 2020_______________________________________
 
 egg_ratio_19_20 <- full_join(egg.ratio19, egg.ratio20) 
 
