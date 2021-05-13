@@ -58,4 +58,8 @@ Oct.fec_final %>%
 dev.off()
 
 #stats
-t.test(fecundity~treatment, data = Oct.fec_final) #Statistically significant if p-value <0.05
+model2 <- aov(fecundity ~ treatment*origin, data = Oct.fec_final)
+plot(model2, 1)
+plot(model2, 2)
+anova(model2)
+TukeyHSD(model2)

@@ -33,6 +33,36 @@ eggs.per.bundle_Acy2020 %>%
   theme_classic()
 dev.off()
 
-#stats - simple t-test to 
-t.test(Mean.eggs~Treatment, data = eggs.per.bundle_Acy2020) #Statistically significant if p-value <0.05
+#stats - Anova to test the differences between the means of each site broken up by treatment. No significance
+model1 <- aov(Mean.eggs ~ Treatment*Origin, data = eggs.per.bundle_Acy2020)
+plot(model1, 1)
+plot(model1, 2)
+anova(model1)
+TukeyHSD(model1)
+
+#putting A. pulchra and A. cyatherea plots together
+
+Apul <- eggs.per.bundle_2020 %>%
+  ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
+  labs(x ="Site", y = "Eggs per Bundle 2020", title = "A.pulchra") +
+  scale_y_continuous(limits = c(0,12)) + 
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic()
+
+Acy <- eggs.per.bundle_Acy2020 %>%
+  ggplot(aes(x = Origin, y = Mean.eggs, color = Treatment)) +
+  labs(x ="Site", y = "Eggs per Bundle 2020", title = "A.cyatherea") +
+  scale_y_continuous(limits = c(0,12)) +
+  geom_jitter(width = 0.1) +                                            # Plot all points
+  stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
+               geom = "errorbar", color = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", color = "black") +          # Plot mean
+  theme_classic()
+
+Apul_vs_Acy_epb2020 <- ggarrange(Apul,Acy, ncol = 2, nrow = 1)
+
+ggsave("Output/Acyatherea_Figs/Apul_vs_Acya_EPB2020.pdf", Apul_vs_Acy_epb2020, width=10, height=5)
 
