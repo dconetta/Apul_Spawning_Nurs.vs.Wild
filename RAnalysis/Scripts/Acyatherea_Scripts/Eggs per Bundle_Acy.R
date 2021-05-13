@@ -19,6 +19,9 @@ eggs.per.bundle_Acy2020 <- eggs.per.bundle2.0 %>%
   group_by(Sample_ID, Species, Origin, Treatment) %>% #Grouping all the wanted variables
   summarise(Mean.eggs = mean(Num.Eggs)) #Summarizing all the wells for each sample-ID and providing new Mean.eggs per sample
 
+#Ordering the dataframe to have the nursery site first and then all the wild sites 
+eggs.per.bundle_Acy2020$Origin <- factor(eggs.per.bundle_Acy2020$Origin, levels = c("Nursery", "Linareva", "Mahana", "Sofitel"))
+
 pdf("Output/Acyatherea_Figs/Eggs_per_Bundle_Acy2020.pdf")
 eggs.per.bundle_Acy2020 %>%
   ggplot(aes(x = Origin, y = Mean.eggs, color = Treatment)) +
