@@ -24,7 +24,7 @@ SA<-read.csv('Data/Oct_2019/Apul_Wax_Data.csv', header=T, sep=",")
 SA$surface.area.cm2 <- (model$coefficients[2]*(SA$waxedmass.g - SA$mass.g)) + model$coefficients[1]
 
 SA <- SA %>%
-  mutate(sample_id = ?..sample_id)
+  mutate(sample_id = ï..sample_id)
 
 # load Fecundity data 
 Oct.fec <- read.csv('Data/Oct_2019/2019_October_Fecundity.csv', header=T, sep=",")

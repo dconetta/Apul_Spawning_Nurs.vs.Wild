@@ -47,7 +47,7 @@ eggs.per.bundle_2020 <- eggs.per.bundle2.0 %>%
 pdf("Output/Eggs_per_Bundle/eggs.per.bundle_2020.pdf")
 eggs.per.bundle_2020 %>%
   ggplot(aes(x = Treatment, y = Mean.eggs, color = Treatment)) +
-  labs(x ="", y = "Eggs per Bundle 2020") +
+  labs(x ="", y = "Eggs per Bundle 2020", title = "A.pulchra") +
   geom_jitter(width = 0.1) +                                            # Plot all points
   stat_summary(fun.data = "mean_cl_normal", fun.args = list(mult = 1),    # Plot standard error
                geom = "errorbar", color = "black", width = 0.1) +
